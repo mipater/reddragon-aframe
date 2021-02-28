@@ -1,9 +1,23 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- A-Frame JS Dependencies -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> 
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-simple-sun-sky@^1.2.2/simple-sun-sky.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+
   </head>
   <body>
-    <a-scene>
+    <script src="components/log.js"></script>
+    <a-scene preloader log="ciao mondo">
+      <a-assets>
+        <img id="dark_wood" src="assets/materials/dark_wood2.jpg"></img>
+      </a-assets>
+      <a-entity enviropack="preset: interior"></a-entity>
+      
+      <!-- Sky -->
+      <a-simple-sun-sky sun-position="1 0.1 0"></a-simple-sun-sky>
+
         <!-- Player -->
         <a-entity camera
                   wasd-controls
@@ -14,13 +28,11 @@
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                     material="color: #CCC; shader: flat;"></a-entity>
         </a-entity>
+        
+        <a-entity position="0.063 1.812 0.000" light="type:  point;  target:  #wall;  color:  #f7f7f7;  decay:  0.88;  distance:  4.95;  intensity:  4.19"></a-entity>
 
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-box id="wall" position="-0.05088 2.03536 -4.94558"  rotation="" width="4" height="4" color="#7BC8A4" material="src: #dark_wood" geometry="primitive: box; width: 11.43"></a-box>
 
-      <a-sky color="#32a895"></a-sky>
     </a-scene>
   </body>
 </html>

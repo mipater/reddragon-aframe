@@ -3,7 +3,8 @@ const app = express()
 
 app.use(express.static('public'))
 app.use('/assets', express.static(__dirname + '/assets'));
-app.use('/js', express.static(__dirname + '/js'));
+app.use('/components', express.static(__dirname + '/components'));
+app.use('/objects', express.static(__dirname + '/objects'));
 
 var path = require('path');
 

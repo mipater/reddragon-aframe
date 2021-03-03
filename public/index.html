@@ -37,7 +37,7 @@
 
         <!-- Player -->
         <a-entity camera
-                  wasd-controls
+                  wasd-controls="acceleration: 20"
                   position="0 1.8 0"
                   look-controls="pointerLockEnabled: true">
           <a-entity cursor
@@ -56,8 +56,8 @@
 
         <a-box id="wall-front" position="-0.05088 2.03536 -4.94558"  rotation="" width="4" height="4" color="#ffffff" material="src: #wall2; color: #5f5858; repeat: 5 2" geometry="primitive: box; width: 11.43">
           <!-- Anchors. -->
-          <a-entity position="0 1 0"
-            text="anchor: center; width: 1.5; color: white; value: [CENTER ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+          <a-entity position="1.587 0.074 0.503"
+            text="anchor: center; width: 1.5; color: white; value: Mona Lisa - Leonardo Da Vinci">
           </a-entity>
           <a-box material="src: #cloth; color: #211b12; metalness: 1.000" position="0 0 0.500" rotation="0 90 0" depth="1.570" height="1.990" width="0.1">
             <a-image id="painting" height="1.49" position="-0.056 0 0" rotation="0 90 0" src="#painting"></a-image>

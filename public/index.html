@@ -24,6 +24,12 @@
         <img id="wall2" src="assets/materials/wall4.jpg"></img>
         <img id="painting" src="assets/materials/painting.jpg">
         <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+
+        <a-mixin
+        id="marker"
+        geometry="primitive: plane; width: 0.02; height: 0.02"
+        material="color: red"
+      ></a-mixin>
       </a-assets>
       
       <!-- Sky -->
@@ -45,11 +51,14 @@
         <a-entity light="intensity:  0.5" position="-0.5 1 1"></a-entity>
         <!-- <a-entity position="0.063 1.812 0.000" light="type:  point;  target:  #painting;  color:  #f7f7f7;  decay:  0.88;  distance:  4.95;  intensity:  4.19"></a-entity> -->
         
-        <!-- <a-entity obj-model="obj: #museum" scale="1 1 1"></a-entity> -->
-        <a-entity id="statue" dynamic-body="shape: box; mass: 2" position="0 1.673 0.432" animation="property: rotation; from: 0 -30 0; to: 0 330 0; dur: 15000; easing: linear; loop: true" obj-model="obj: #hercules-obj; mtl: #hercules-mtl" scale="0.05 0.05 0.05"></a-entity>
-        <a-entity id="pedestal" dynamic-body="shape: box; mass: 2" position="0 0 0.432" rotation="-90.000 0 0" obj-model="obj: #pedestal-obj; mtl: #pedestal-mtl" scale="0.02 0.02 0.02"></a-entity>
+        <a-entity id="statue" dynamic-body="shape: box; mass: 2" position="0 1.250 0.432" animation="property: rotation; from: 0 -30 0; to: 0 330 0; dur: 15000; easing: linear; loop: true" obj-model="obj: #hercules-obj; mtl: #hercules-mtl" scale="0.03 0.03 0.03"></a-entity>
+        <a-entity id="pedestal" dynamic-body="shape: box; mass: 2" position="0 0 0.432" rotation="-90.000 0 0" obj-model="obj: #pedestal-obj; mtl: #pedestal-mtl" scale="0.015 0.015 0.015"></a-entity>
 
         <a-box id="wall-front" position="-0.05088 2.03536 -4.94558"  rotation="" width="4" height="4" color="#ffffff" material="src: #wall2; color: #5f5858; repeat: 5 2" geometry="primitive: box; width: 11.43">
+          <!-- Anchors. -->
+          <a-entity position="0 1 0"
+            text="anchor: center; width: 1.5; color: white; value: [CENTER ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+          </a-entity>
           <a-box material="src: #cloth; color: #211b12; metalness: 1.000" position="0 0 0.500" rotation="0 90 0" depth="1.570" height="1.990" width="0.1">
             <a-image id="painting" height="1.49" position="-0.056 0 0" rotation="0 90 0" src="#painting"></a-image>
           </a-box>

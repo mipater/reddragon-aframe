@@ -1,6 +1,8 @@
 # Interfaccia
 https://medium.com/updates-from-vizor/prototyping-a-360-museum-tour-with-react-vr-1c9b1d3d89bb
 https://github.com/aframevr/aframe/blob/master/examples/showcase/ui/info-panel.js
+https://aframe.io/aframe/examples/test/layer/
+https://aframe.io/aframe/examples/showcase/ui/
 
 # Ottimizzazione
 https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/

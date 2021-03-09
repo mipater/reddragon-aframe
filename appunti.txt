@@ -7,3 +7,6 @@ https://aframe.io/aframe/examples/showcase/ui/
 # Ottimizzazione
 https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/
 https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-starts-4ec3bd35c6fc
+
+#Interazione
+https://www.donmccurdy.com/2017/01/25/gamepad-support-on-the-web/

@@ -11,3 +11,4 @@ https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-sta
 #Interazione
 https://stackoverflow.com/questions/51750339/how-to-switch-between-gaze-and-laser, https://aframe.io/docs/1.2.0/components/cursor.html#fuse-based-cursor -> aggiungere gazed input on mobile
 https://stackoverflow.com/questions/42529036/add-video-in-aframe-dynamically -> per renderizzare dinamicamente immagini
+https://codepen.io/shaunix/pen/bgBbMj checkpoint control

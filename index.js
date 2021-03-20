@@ -4,7 +4,9 @@ const app = express()
 app.use(express.static('public'))
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/components', express.static(__dirname + '/components'));
+app.use('/systems', express.static(__dirname + '/systems'));
 app.use('/objects', express.static(__dirname + '/objects'));
+app.use('/model', express.static(__dirname + '/model'));
 
 var path = require('path');
 

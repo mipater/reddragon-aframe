@@ -27,12 +27,12 @@ AFRAME.registerComponent('info-panel', {
 
   createInfoPanel: function(intersectionPoint) {
     const sceneEl = document.querySelector('a-scene');
-    let entityEl = document.createElement('a-entity');
+    let entityEl = document.createElement('a-curvedimage');
 
     // set panel position from intersection point
     entityEl.setAttribute('position', {x: intersectionPoint.x-0.9, y: intersectionPoint.y, z: intersectionPoint.z+0.285});
-    entityEl.setAttribute('geometry', {primitive: 'curvedimage', width: 1.5, height: 1.8});
-    entityEl.setAttribute('material', {color: '#333333', shader: 'flat', transparent: false})
+    entityEl.setAttribute('geometry', {primitive: 'cylinder', radius: 3, segmentHeight: 18, segmentRadial: 48, thetalength: 72.000, height: 3.000});
+    entityEl.setAttribute('material', {color: '#ffffff', shader: 'flat', transparent: false, src: '#myCanvas'})
     entityEl.innerHTML = '<a-entity id="movieTitle" position="-0.68 -0.1 0" text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity>';
     sceneEl.appendChild(entityEl);
     entityEl.addEventListener('loaded', () => {

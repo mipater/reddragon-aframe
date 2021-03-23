@@ -15,8 +15,10 @@
   <script src="components/log.js"></script>
   <script type="module" src="systems/data-manager.js"></script>
   <script src="components/info-panel.js"></script>
+
   <a-scene stats debug data-manager>
     <a-assets>
+      <canvas id="myCanvas"><a-entity id="movieTitle" position="-0.68 -0.1 0" text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity></canvas>
       <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
       <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
       <a-asset-item id="hercules-obj" src="assets/objects/statue/hercules.obj"></a-asset-item>
@@ -34,11 +36,11 @@
       <a-mixin id="marker" geometry="primitive: plane; width: 0.02; height: 0.02" material="color: red"></a-mixin>
     </a-assets>
 
-    <!-- <a-entity id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+    <!-- <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
       <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
         <a-entity
           scale="0.06 0.06 0.06"
-          raycaster="objects: .clickable;far:5;"
+          raycaster="objects: .clickable;far:10;"
           cursor="fuse:true;fuseTimeout:1200"
           geometry="primitive:ring;"
           material="color:#ff0000;"
@@ -53,17 +55,9 @@
           startEvents:mouseleave;"
         ></a-entity>
       </a-entity>
-    </a-entity> -->
-        <!-- Player -->
-    <!-- <a-entity camera
-                  wasd-controls="acceleration: 20"
-                  position="0 1.8 0"
-                  look-controls="pointerLockEnabled: true">
-          <a-entity cursor
-                    position="0 0 -1"
-                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
-                    material="color: #CCC; shader: flat;"></a-entity>
-        </a-entity> -->
+    </a-entity>  -->
+       
+    <!-- Player -->
         <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
           <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
             <a-entity
@@ -88,14 +82,20 @@
         </a-entity>
     
     <!-- Checkpoints -->
-    <a-entity position="1 0 1">
-      <a-cylinder checkpoint class="clickable" radius="0.5" height="0.1" position="-1.063 0.000 -3.715" color="#39BB82"></a-cylinder>
-      <a-cylinder checkpoint class="clickable" radius="0.5" height="0.1" position="3 0 0" color="#39BB82"></a-cylinder>
-      <a-cylinder checkpoint class="clickable" radius="0.5" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
+    <a-entity position="-4.46079 0.61078 -0.05092">
+      <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-6.02791 -0.323 -4.66895" color="#39BB82" material="" geometry=""></a-cylinder>
+      <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-1.46578 -0.32278 -0.0603" color="#39BB82" material="" geometry=""></a-cylinder>
+      <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="2.12299 -0.32278 -0.01838" color="#39BB82" material="" geometry=""></a-cylinder>
+      <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-9.81946 -0.323 -0.19846" color="#39BB82" material="" geometry=""></a-cylinder>
     </a-entity>
 
+   <a-box material="src: #cloth; color: #211b12; metalness: 1.000" position="-18.266 1.715 0.021" rotation="0 180 0"
+    depth="1.570" height="1.990" width="0.1">
+    <a-image id="painting" height="1.49" position="-0.056 0 0" rotation="0 90 0" src="#painting"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="0" position="0.00723 -0.11196 0.9908" geometry="depth: 0.09; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+   </a-box>
 
-      <a-entity id="museo" position="0 0.087 0.432" rotation="0 0 0"
+      <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0"
       obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
 
     <!-- Ambient Lights -->

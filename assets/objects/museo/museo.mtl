@@ -6,7 +6,7 @@ newmtl Modern_Siding
 Ka 0.000000 0.000000 0.000000
 Kd 0.749020 0.517647 0.392157
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Modern_Siding.jpg
+map_Kd textures/Modern_Siding.jpg
 
 newmtl BackColor
 Ka 0.000000 0.000000 0.000000
@@ -17,7 +17,7 @@ newmtl Formica_Laminate_Light
 Ka 0.000000 0.000000 0.000000
 Kd 0.835294 0.741176 0.643137
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Formica_Laminate_Light.jpg
+map_Kd textures/Formica_Laminate_Light.jpg
 
 newmtl FrontColor
 Ka 0.000000 0.000000 0.000000
@@ -29,7 +29,7 @@ Ka 0.000000 0.000000 0.000000
 Kd 0.196078 0.207843 0.235294
 Ks 0.330000 0.330000 0.330000
 d 0.500000
-map_Kd museo/_Formica_Laminate_Dark_2.jpg
+map_Kd textures/_Formica_Laminate_Dark_2.jpg
 
 newmtl Color_M04
 Ka 0.000000 0.000000 0.000000
@@ -55,13 +55,13 @@ newmtl Formica_Laminate_Dark
 Ka 0.000000 0.000000 0.000000
 Kd 0.196078 0.207843 0.235294
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Formica_Laminate_Dark.jpg
+map_Kd textures/Formica_Laminate_Dark.jpg
 
 newmtl Terrazzo_Tile_Accent
 Ka 0.000000 0.000000 0.000000
 Kd 0.878431 0.866667 0.850980
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Terrazzo_Tile_Accent.jpg
+map_Kd textures/Terrazzo_Tile_Accent.jpg
 
 newmtl Materiale
 Ka 0.000000 0.000000 0.000000
@@ -72,7 +72,7 @@ newmtl Wood_Veneer_01
 Ka 0.000000 0.000000 0.000000
 Kd 0.470588 0.274510 0.145098
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Wood_Veneer_01.jpg
+map_Kd textures/Wood_Veneer_01.jpg
 
 newmtl _Translucent_Glass_Blue_4
 Ka 0.000000 0.000000 0.000000
@@ -106,25 +106,25 @@ newmtl Grass_Dark_Green
 Ka 0.000000 0.000000 0.000000
 Kd 0.415686 0.615686 0.215686
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Grass_Dark_Green.jpg
+map_Kd textures/Grass_Dark_Green.jpg
 
 newmtl Concrete_Block_Retaining_Gray
 Ka 0.000000 0.000000 0.000000
 Kd 0.474510 0.474510 0.474510
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Concrete_Block_Retaining_Gray.jpg
+map_Kd textures/Concrete_Block_Retaining_Gray.jpg
 
 newmtl Fencing_Picket_Concave
 Ka 0.000000 0.000000 0.000000
 Kd 0.627451 0.627451 0.627451
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Fencing_Picket_Concave.png
+map_Kd textures/Fencing_Picket_Concave.png
 
 newmtl Fencing_Metal_Straight
 Ka 0.000000 0.000000 0.000000
 Kd 0.760784 0.764706 0.768627
 Ks 0.330000 0.330000 0.330000
-map_Kd museo/Fencing_Metal_Straight.png
+map_Kd textures/Fencing_Metal_Straight.png
 
 newmtl ForegroundColor
 Ka 0.000000 0.000000 0.000000

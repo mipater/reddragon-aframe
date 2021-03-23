@@ -17,8 +17,8 @@
   <script src="components/info-panel.js"></script>
   <a-scene stats debug data-manager>
     <a-assets>
-      <a-asset-item id="museum-obj" src="assets/objects/museum/test.obj"></a-asset-item>
-      <a-asset-item id="museum-mtl" src="assets/objects/museum/test.mtl"></a-asset-item>
+      <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
+      <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
       <a-asset-item id="hercules-obj" src="assets/objects/statue/hercules.obj"></a-asset-item>
       <a-asset-item id="pedestal-obj" src="assets/objects/pedestal/pedestal.obj"></a-asset-item>
       <a-asset-item id="pedestal-mtl" src="assets/objects/pedestal/pedestal.mtl"></a-asset-item>
@@ -34,7 +34,7 @@
       <a-mixin id="marker" geometry="primitive: plane; width: 0.02; height: 0.02" material="color: red"></a-mixin>
     </a-assets>
 
-    <a-entity id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+    <!-- <a-entity id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
       <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
         <a-entity
           scale="0.06 0.06 0.06"
@@ -53,7 +53,39 @@
           startEvents:mouseleave;"
         ></a-entity>
       </a-entity>
-    </a-entity>
+    </a-entity> -->
+        <!-- Player -->
+    <!-- <a-entity camera
+                  wasd-controls="acceleration: 20"
+                  position="0 1.8 0"
+                  look-controls="pointerLockEnabled: true">
+          <a-entity cursor
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                    material="color: #CCC; shader: flat;"></a-entity>
+        </a-entity> -->
+        <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
+          <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
+            <a-entity
+              scale="0.06 0.06 0.06"
+              raycaster="objects: .clickable;far:2;"
+              cursor="fuse:true;fuseTimeout:1200"
+              geometry="primitive:ring;"
+              material="color:#ff0000;"
+              position="0 0 -1"
+              animation__fusing="property:scale;
+                from: 0.06 0.06 0.06;
+                dur:1200;
+                to : 0.01 0.01 0.01;
+                startEvents:fusing;
+              "
+              animation__pegi="property:scale;
+              to :0.06 0.06 0.06;
+              startEvents:mouseleave;
+              "
+            ></a-entity>
+          </a-entity>
+        </a-entity>
     
     <!-- Checkpoints -->
     <a-entity position="1 0 1">
@@ -62,13 +94,13 @@
       <a-cylinder checkpoint class="clickable" radius="0.5" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
     </a-entity>
 
-<!-- 
-      <a-entity id="museum" position="0 0 0.432" rotation="0 0 0"
-      obj-model="obj: #museum-obj; mtl: #museum-mtl" scale="1 1 1"></a-entity> -->
+
+      <a-entity id="museo" position="0 0.087 0.432" rotation="0 0 0"
+      obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
 
     <!-- Ambient Lights -->
-    <a-entity light="type:  ambient;  color:  #BBB;  intensity:  0.42"></a-entity>
-    <a-entity light="intensity:  0.5" position="-0.5 1 1"></a-entity>
+    <a-entity light="type: ambient; color: #BBB; intensity: 0.42"></a-entity>
+    <a-entity light="intensity: 0.5" position="-0.5 1 1"></a-entity>
 
     <!-- <a-entity id="statue" dynamic-body="shape: box; mass: 2" position="0 1.250 0.432"
       animation="property: rotation; from: 0 -30 0; to: 0 330 0; dur: 15000; easing: linear; loop: true"
@@ -76,7 +108,7 @@
     <a-entity id="pedestal" dynamic-body="shape: box; mass: 2" position="0 0 0.432" rotation="-90.000 0 0"
       obj-model="obj: #pedestal-obj; mtl: #pedestal-mtl" scale="0.015 0.015 0.015"></a-entity> -->
 
-    <a-box id="wall-front" position="-0.05088 2.03536 -4.94558" rotation="" width="4" height="4" color="#ffffff"
+    <!-- <a-box id="wall-front" position="-0.05088 2.03536 -4.94558" rotation="" width="4" height="4" color="#ffffff"
       material="src: #wall2; color: #5f5858; repeat: 5 2" geometry="primitive: box; width: 11.43">
       <a-entity position="1.587 0.074 0.503"
         text="anchor: center; width: 1.5; color: white; value: Mona Lisa - Leonardo Da Vinci">
@@ -101,7 +133,7 @@
         material="src: #wall1; color: #231f1f" geometry="width: 11.43; repeat: 5 2"></a-box>
       <a-box position="5.25171 0 6.20387" rotation="0 90 0" width="4" height="4" color="#ffffff"
         material="src: #wall1; color: #231f1f" geometry="width: 11.43; repeat: 5 2"></a-box>
-    </a-box>
+    </a-box> -->
 
     <!-- Floor -->
     <a-plane rotation="-90 0 0" width="30" height="30" material="src: #floor; repeat: 20 15"></a-plane>

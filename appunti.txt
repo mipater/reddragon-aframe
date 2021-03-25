@@ -14,3 +14,8 @@ https://stackoverflow.com/questions/42529036/add-video-in-aframe-dynamically -> 
 https://codepen.io/shaunix/pen/bgBbMj checkpoint control
 https://aframe.io/docs/0.6.0/core/asset-management-system.html#how-it-works-internally, https://stackoverflow.com/questions/44851046/use-a-frame-img-assets-inside-javascript
 https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
+
+#Idee
+- Info all'ingresso
+- video wall
+- audio ambiente

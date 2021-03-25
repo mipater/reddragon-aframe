@@ -18,7 +18,7 @@
 
   <a-scene stats debug data-manager>
     <a-assets>
-      <canvas id="myCanvas"><a-entity id="movieTitle" position="-0.68 -0.1 0" text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity></canvas>
+      <canvas id="myCanvas"></canvas>
       <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
       <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
       <a-asset-item id="hercules-obj" src="assets/objects/statue/hercules.obj"></a-asset-item>
@@ -36,7 +36,7 @@
       <a-mixin id="marker" geometry="primitive: plane; width: 0.02; height: 0.02" material="color: red"></a-mixin>
     </a-assets>
 
-    <!-- <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+    <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
       <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
         <a-entity
           scale="0.06 0.06 0.06"
@@ -55,10 +55,10 @@
           startEvents:mouseleave;"
         ></a-entity>
       </a-entity>
-    </a-entity>  -->
+    </a-entity> 
        
     <!-- Player -->
-        <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
+        <!-- <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
           <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
             <a-entity
               scale="0.06 0.06 0.06"
@@ -79,8 +79,8 @@
               "
             ></a-entity>
           </a-entity>
-        </a-entity>
-    
+        </a-entity> -->
+  
     <!-- Checkpoints -->
     <a-entity position="-4.46079 0.61078 -0.05092">
       <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-6.02791 -0.323 -4.66895" color="#39BB82" material="" geometry=""></a-cylinder>

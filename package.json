@@ -4,7 +4,8 @@
   "description": "\"# aframe\"",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "text-to-speech-js": "^1.1.10"
   },
   "engines": {
     "node": "15.2.1",

@@ -1,5 +1,6 @@
 import { Art } from "../model/art.model.js";
 
+
 AFRAME.registerSystem('data-manager', {
     init: function() {
       console.log('data-manager: init()');

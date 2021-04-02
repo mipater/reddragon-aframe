@@ -2,77 +2,157 @@
 ## Alias OBJ Material File
 # Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
 
-newmtl Modern_Siding
+newmtl Materiale10
 Ka 0.000000 0.000000 0.000000
-Kd 0.749020 0.517647 0.392157
+Kd 0.266667 0.286275 0.325490
 Ks 0.330000 0.330000 0.330000
-map_Kd textures/Modern_Siding.jpg
 
 newmtl BackColor
 Ka 0.000000 0.000000 0.000000
 Kd 0.635294 0.717647 0.776471
 Ks 0.330000 0.330000 0.330000
 
-newmtl Formica_Laminate_Light
-Ka 0.000000 0.000000 0.000000
-Kd 0.835294 0.741176 0.643137
-Ks 0.330000 0.330000 0.330000
-map_Kd textures/Formica_Laminate_Light.jpg
-
 newmtl FrontColor
 Ka 0.000000 0.000000 0.000000
 Kd 1.000000 1.000000 1.000000
 Ks 0.330000 0.330000 0.330000
-
-newmtl _Formica_Laminate_Dark_2
-Ka 0.000000 0.000000 0.000000
-Kd 0.196078 0.207843 0.235294
-Ks 0.330000 0.330000 0.330000
-d 0.500000
-map_Kd textures/_Formica_Laminate_Dark_2.jpg
 
 newmtl Color_M04
 Ka 0.000000 0.000000 0.000000
 Kd 0.556863 0.556863 0.556863
 Ks 0.330000 0.330000 0.330000
 
+newmtl Roofing_Slate_Tan
+Ka 0.000000 0.000000 0.000000
+Kd 0.784314 0.686275 0.501961
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Roofing_Slate_Tan.jpg
+
 newmtl Materiale4
 Ka 0.000000 0.000000 0.000000
 Kd 0.427451 0.447059 0.521569
 Ks 0.330000 0.330000 0.330000
 
-newmtl Materiale2
+newmtl Modern_Siding
 Ka 0.000000 0.000000 0.000000
-Kd 0.396078 0.423529 0.482353
+Kd 0.749020 0.517647 0.392157
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Modern_Siding.jpg
+
+newmtl Materiale17
+Ka 0.000000 0.000000 0.000000
+Kd 0.600000 0.600000 0.596078
 Ks 0.330000 0.330000 0.330000
 
-newmtl Materiale7
+newmtl Grass_Dark_Green
 Ka 0.000000 0.000000 0.000000
-Kd 0.364706 0.372549 0.388235
+Kd 0.415686 0.615686 0.215686
 Ks 0.330000 0.330000 0.330000
+map_Kd museo/Grass_Dark_Green.jpg
 
-newmtl Formica_Laminate_Dark
+newmtl Concrete_Block_Retaining_Gray
 Ka 0.000000 0.000000 0.000000
-Kd 0.196078 0.207843 0.235294
+Kd 0.474510 0.474510 0.474510
 Ks 0.330000 0.330000 0.330000
-map_Kd textures/Formica_Laminate_Dark.jpg
+map_Kd museo/Concrete_Block_Retaining_Gray.jpg
+
+newmtl Fencing_Metal_Straight
+Ka 0.000000 0.000000 0.000000
+Kd 0.760784 0.764706 0.768627
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Fencing_Metal_Straight.png
+
+newmtl Wood_Veneer_01
+Ka 0.000000 0.000000 0.000000
+Kd 0.470588 0.274510 0.145098
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Wood_Veneer_01.jpg
+
+newmtl Wood_Cherry_Original
+Ka 0.000000 0.000000 0.000000
+Kd 0.596078 0.337255 0.164706
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Wood_Cherry_Original.jpg
 
 newmtl Terrazzo_Tile_Accent
 Ka 0.000000 0.000000 0.000000
 Kd 0.878431 0.866667 0.850980
 Ks 0.330000 0.330000 0.330000
-map_Kd textures/Terrazzo_Tile_Accent.jpg
+map_Kd museo/Terrazzo_Tile_Accent.jpg
+
+newmtl Materiale5
+Ka 0.000000 0.000000 0.000000
+Kd 0.305882 0.333333 0.372549
+Ks 0.330000 0.330000 0.330000
 
 newmtl Materiale
 Ka 0.000000 0.000000 0.000000
 Kd 0.419608 0.458824 0.509804
 Ks 0.330000 0.330000 0.330000
 
-newmtl Wood_Veneer_01
+newmtl Materiale9
 Ka 0.000000 0.000000 0.000000
-Kd 0.470588 0.274510 0.145098
+Kd 0.356863 0.380392 0.435294
 Ks 0.330000 0.330000 0.330000
-map_Kd textures/Wood_Veneer_01.jpg
+
+newmtl Wood_Floor
+Ka 0.000000 0.000000 0.000000
+Kd 0.607843 0.411765 0.239216
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Wood_Floor.jpg
+
+newmtl Tile_Travertine_2_inch
+Ka 0.000000 0.000000 0.000000
+Kd 0.709804 0.698039 0.674510
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Tile_Travertine_2_inch.jpg
+
+newmtl Materiale8
+Ka 0.000000 0.000000 0.000000
+Kd 0.219608 0.223529 0.235294
+Ks 0.330000 0.330000 0.330000
+
+newmtl Stone_Sandstone_Ashlar_Light
+Ka 0.000000 0.000000 0.000000
+Kd 0.807843 0.698039 0.501961
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Stone_Sandstone_Ashlar_Light.jpg
+
+newmtl Formica_Laminate_Light
+Ka 0.000000 0.000000 0.000000
+Kd 0.835294 0.741176 0.643137
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Formica_Laminate_Light.jpg
+
+newmtl Marble_Carrara_Gold_Floor_Tile
+Ka 0.000000 0.000000 0.000000
+Kd 0.882353 0.874510 0.850980
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Marble_Carrara_Gold_Floor_Tile.jpg
+
+newmtl Metal_Embossed
+Ka 0.000000 0.000000 0.000000
+Kd 0.564706 0.564706 0.564706
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Metal_Embossed.jpg
+
+newmtl Metal_Rusted
+Ka 0.000000 0.000000 0.000000
+Kd 0.721569 0.458824 0.356863
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Metal_Rusted.jpg
+
+newmtl Cladding_Siding_Tan
+Ka 0.000000 0.000000 0.000000
+Kd 0.635294 0.494118 0.372549
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Cladding_Siding_Tan.jpg
+
+newmtl Wood_Square_Tile_01
+Ka 0.000000 0.000000 0.000000
+Kd 0.643137 0.356863 0.172549
+Ks 0.330000 0.330000 0.330000
+map_Kd museo/Wood_Square_Tile_01.jpg
 
 newmtl _Translucent_Glass_Blue_4
 Ka 0.000000 0.000000 0.000000
@@ -92,39 +172,17 @@ Kd 0.392157 0.584314 0.929412
 Ks 0.330000 0.330000 0.330000
 d 0.157106
 
-newmtl Materiale5
+newmtl Tile_Various_Tan
 Ka 0.000000 0.000000 0.000000
-Kd 0.305882 0.333333 0.372549
+Kd 0.839216 0.768627 0.662745
 Ks 0.330000 0.330000 0.330000
-
-newmtl Materiale8
-Ka 0.000000 0.000000 0.000000
-Kd 0.219608 0.223529 0.235294
-Ks 0.330000 0.330000 0.330000
-
-newmtl Grass_Dark_Green
-Ka 0.000000 0.000000 0.000000
-Kd 0.415686 0.615686 0.215686
-Ks 0.330000 0.330000 0.330000
-map_Kd textures/Grass_Dark_Green.jpg
-
-newmtl Concrete_Block_Retaining_Gray
-Ka 0.000000 0.000000 0.000000
-Kd 0.474510 0.474510 0.474510
-Ks 0.330000 0.330000 0.330000
-map_Kd textures/Concrete_Block_Retaining_Gray.jpg
+map_Kd museo/Tile_Various_Tan.jpg
 
 newmtl Fencing_Picket_Concave
 Ka 0.000000 0.000000 0.000000
 Kd 0.627451 0.627451 0.627451
 Ks 0.330000 0.330000 0.330000
-map_Kd textures/Fencing_Picket_Concave.png
-
-newmtl Fencing_Metal_Straight
-Ka 0.000000 0.000000 0.000000
-Kd 0.760784 0.764706 0.768627
-Ks 0.330000 0.330000 0.330000
-map_Kd textures/Fencing_Metal_Straight.png
+map_Kd museo/Fencing_Picket_Concave.png
 
 newmtl ForegroundColor
 Ka 0.000000 0.000000 0.000000

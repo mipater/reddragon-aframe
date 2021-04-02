@@ -1,6 +1,5 @@
 <a-scene stats debug data-manager>
   <a-assets>
-    <canvas id="myCanvas"></canvas>
     <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
     <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
     <a-asset-item id="hercules-obj" src="assets/objects/statue/hercules.obj"></a-asset-item>
@@ -18,13 +17,13 @@
     <a-mixin id="marker" geometry="primitive: plane; width: 0.02; height: 0.02" material="color: red"></a-mixin>
   </a-assets>
 
-<!--  <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+  <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
     <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
         raycaster="objects: .clickable;far:10;"
         cursor="fuse:true;fuseTimeout:1200"
-        geometry="primitive:ring;"
+        geometry="primitive:circle; radius: 0.200"
         material="color:#ff0000;"
         position="0 0 -1"
         animation__fusing="property:scale;
@@ -37,10 +36,10 @@
           startEvents:mouseleave;"
       ></a-entity>
     </a-entity>
-  </a-entity>-->
+  </a-entity>
 
   <!-- Player -->
-   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
+<!--   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
     <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
@@ -61,14 +60,17 @@
         "
       ></a-entity>
     </a-entity>
-  </a-entity>
+  </a-entity>-->
+
+  <a-entity id="teleHand" hand-controls="left"></a-entity>
+  <a-entity id="blockHand" hand-controls="right" controller-cursor teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
 
   <!-- Checkpoints -->
   <a-entity position="-4.46079 0.61078 -0.05092">
     <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-6.02791 -0.323 -4.66895" color="#39BB82" material="" geometry=""></a-cylinder>
     <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-1.46578 -0.32278 -0.0603" color="#39BB82" material="" geometry=""></a-cylinder>
     <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="2.12299 -0.32278 -0.01838" color="#39BB82" material="" geometry=""></a-cylinder>
-    <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-9.81946 -0.323 -0.19846" color="#39BB82" material="" geometry=""></a-cylinder>
+    <a-cylinder checkpoint="" class="clickable" radius="0.5" height="0.1" position="-11.429 -0.323 -0.058" color="#39BB82" material="" geometry=""></a-cylinder>
   </a-entity>
 
   <a-box material="src: #cloth; color: #211b12; metalness: 1.000" position="-18.266 1.715 0.021" rotation="0 180 0"
@@ -85,6 +87,6 @@
   <a-entity light="intensity: 0.5" position="-0.5 1 1"></a-entity>
 
   <!-- Floor -->
-  <a-plane rotation="-90 0 0" width="30" height="30" material="src: #floor; repeat: 20 15"></a-plane>
+  <a-plane id="ground" rotation="-90 0 0" width="30" height="30" material="src: #floor; repeat: 20 15"></a-plane>
 
 </a-scene>

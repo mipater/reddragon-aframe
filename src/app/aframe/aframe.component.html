@@ -17,7 +17,7 @@
     <a-mixin id="marker" geometry="primitive: plane; width: 0.02; height: 0.02" material="color: red"></a-mixin>
   </a-assets>
 
-  <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
+<!--  <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
     <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
@@ -36,16 +36,16 @@
           startEvents:mouseleave;"
       ></a-entity>
     </a-entity>
-  </a-entity>
+  </a-entity>-->
 
   <!-- Player -->
-<!--   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
+   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
     <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
         raycaster="objects: .clickable;far:2;"
         cursor="fuse:true;fuseTimeout:1200"
-        geometry="primitive:ring;"
+        geometry="primitive:circle; radius: 0.200"
         material="color:#ff0000;"
         position="0 0 -1"
         animation__fusing="property:scale;
@@ -60,7 +60,7 @@
         "
       ></a-entity>
     </a-entity>
-  </a-entity>-->
+  </a-entity>
 
   <a-entity id="teleHand" hand-controls="left"></a-entity>
   <a-entity id="blockHand" hand-controls="right" controller-cursor teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>

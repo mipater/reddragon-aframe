@@ -19,3 +19,7 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - Info all'ingresso
 - video wall
 - audio ambiente
+
+#Backoffice
+- inserire dimensioni effettive opera (in metri
+- scegliere dove posizionare l'opera all'interno del museo

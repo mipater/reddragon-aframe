@@ -1,5 +1,5 @@
 export class Art {
-  constructor(private _id: string, private _title: string, private _description: string, private _imgSrc: string, private _author: string) { }
+  constructor(private _id: string, private _title: string, private _description: string, private _imgSrc: string, private _dimensions: { width: number, height: number }, private _author: string) { }
 
   get id(): string {
     return this._id;
@@ -15,6 +15,10 @@ export class Art {
 
   get imgSrc(): string {
     return this._imgSrc;
+  }
+
+  get dimensions(): { width: number; height: number } {
+    return this._dimensions;
   }
 
   get author(): string {

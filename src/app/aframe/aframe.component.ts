@@ -10,7 +10,7 @@ export class AframeComponent implements OnInit {
 
   constructor(private aframeService: AframeService) {
     aframeService.registerSystems(['data-manager']);
-    aframeService.registerComponents(['log', 'info-panel']);
+    aframeService.registerComponents(['log', 'info-panel', 'load-art']);
   }
 
   ngOnInit(): void {

@@ -56,7 +56,6 @@ export class InfoPanel {
 
         var title = document.querySelector('#title');
         title.addEventListener('loaded', () => {
-          title.setAttribute('wrapCount', '52.000')
           var data = title.components.text.data;
           var totalWidth = data.value.length * (data.width / data.wrapCount);
           console.log(totalWidth);

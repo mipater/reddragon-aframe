@@ -46,12 +46,22 @@ export class InfoPanel {
         entityEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
         entityEl.setAttribute('material', {color: '#333333', shader: 'flat', transparent: false});
         entityEl.innerHTML = `
-        <a-plane class="clickable" id="panelCloseBtn" position="1.157 0.810 0.003" geometry="height: 0.140; width: 0.140"></a-plane>
-        <a-entity id="title" position="-0.626 0.744 0" text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value:`+ this.art.title +`"></a-entity>
-        <a-entity id="description" position="-0.626 0.900 0" text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value:`+ this.art.description + `"></a-entity>
+        <a-plane class="clickable" id="panelCloseBtn" position="1.157 0.810 0.003" geometry="height: 0.140; width: 0.140" material="src: https://image.flaticon.com/icons/png/512/106/106830.png"></a-plane>
+        <a-text id="title" position="0 0.613 0" shader="msdf" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#e6dfad" value="`+ this.art.title +`"></a-text>
+        <a-text id="author" position="-0.223 0.539 0" shader="msdf" wrapCount="52" align="left" anchor="center" baseline="top" width="1" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#fedc01" value="`+ this.art.author +`"></a-text>
+        <a-text id="description" position="0 -0.096 0" shader="msdf" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="white" value="`+ this.art.description + `"></a-text>
         `;
 
         sceneEl.appendChild(entityEl);
+
+        var title = document.querySelector('#title');
+        title.addEventListener('loaded', () => {
+          title.setAttribute('wrapCount', '52.000')
+          var data = title.components.text.data;
+          var totalWidth = data.value.length * (data.width / data.wrapCount);
+          console.log(totalWidth);
+        });
+
         entityEl.addEventListener('loaded', () => {
           this.infoPanelEl = entityEl;
           this.panelCloseBtn = document.getElementById('panelCloseBtn');

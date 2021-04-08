@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
-    "test": "ng test",
+    "test": "set NODE_ENV=development node server.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod"
@@ -56,8 +56,8 @@
     "typescript": "~4.0.2"
   },
   "engines": {
-    "node": "14.5.0",
-    "npm": "6.14.9"
+    "node": "15.2.1",
+    "npm": "7.9.0"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.",
   "main": "karma.conf.js",

@@ -21,8 +21,8 @@ export class LoadArt {
         const newHeight = dimensions.height+0.300;
         // load and resize image
         this.parentNode.setAttribute('depth', newWidth+0.300);
-        this.parentNode.setAttribute('height', newWidth+0.200);
-        this.el.setAttribute('material', 'src: https://firebasestorage.googleapis.com/v0/b/reddragon-vrmuseum.appspot.com/o/Alfred_Sisley_133.jpg?alt=media&token=4c1d7087-4c58-4793-9bb4-576c13174ac2');
+        this.parentNode.setAttribute('height', newHeight+0.200);
+        this.el.setAttribute('material', 'src: ' + this.art.imgSrc);
         this.el.setAttribute('width', newWidth);
         this.el.setAttribute('height', newHeight);
       },

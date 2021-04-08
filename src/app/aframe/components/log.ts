@@ -7,7 +7,7 @@ export class Log {
   init(): void {
     AFRAME.registerComponent('log', {
       init: function() {
-        console.log(this.el);
+        // console.log(this.el);
       },
     });
   }

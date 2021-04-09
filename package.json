@@ -61,7 +61,7 @@
     "npm": "7.6.0"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.",
-  "main": "karma.conf.js",
+  "main": "index.js",
   "author": "",
   "license": "ISC"
 }

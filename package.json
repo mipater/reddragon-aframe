@@ -8,8 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod",
-    "postinstall": "ng build --aot -prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -57,8 +56,8 @@
     "typescript": "~4.1.5"
   },
   "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
+    "node": "14.15.3",
+    "npm": "6.14.9"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.",
   "main": "karma.conf.js",

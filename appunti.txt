@@ -7,6 +7,7 @@ https://aframe.io/aframe/examples/showcase/ui/
 # Ottimizzazione
 https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/
 https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-starts-4ec3bd35c6fc
+https://hacks.mozilla.org/2017/07/optimizing-performance-of-a-frame-scenes-for-mobile-devices/
 
 #Interazione
 https://stackoverflow.com/questions/51750339/how-to-switch-between-gaze-and-laser, https://aframe.io/docs/1.2.0/components/cursor.html#fuse-based-cursor -> aggiungere gazed input on mobile
@@ -21,5 +22,5 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - audio ambiente
 
 #Backoffice
-- inserire dimensioni effettive opera (in metri
+- inserire dimensioni effettive opera (in metri)
 - scegliere dove posizionare l'opera all'interno del museo

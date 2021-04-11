@@ -10,11 +10,11 @@
     <img crossorigin="anonymous" id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
   </a-assets>
 
-<!--  <a-entity position="-2.410 0 0.035" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate">
-    <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
+  <a-entity position="-8.25839 4.25701 -19.65318" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" kinematic-body checkpoint-controls="mode: animate">
+    <a-entity id="camera" camera position="0 1.5 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
-        raycaster="objects: .clickable;far:10;"
+        raycaster="objects: .clickable;far:12;"
         cursor="fuse:true;fuseTimeout:1200"
         geometry="primitive:circle; radius: 0.200"
         material="color:#ff0000;"
@@ -29,10 +29,10 @@
           startEvents:mouseleave;"
       ></a-entity>
     </a-entity>
-  </a-entity>-->
+  </a-entity>
 
   <!-- Player -->
-   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
+<!--   <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="1 0 2">
     <a-entity camera position="-14.907 1.6 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
@@ -53,10 +53,11 @@
         "
       ></a-entity>
     </a-entity>
-  </a-entity>
+  </a-entity>-->
 
-  <a-entity id="teleHand" hand-controls="left"></a-entity>
-  <a-entity id="blockHand" hand-controls="right" controller-cursor teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
+  <a-entity laser-controls raycaster="objects: .links; far: 5"></a-entity>
+  <a-entity oculus-touch-controls="hand: left"></a-entity>
+  <a-entity oculus-touch-controls="hand: right"></a-entity>
 
   <!-- Checkpoints -->
   <a-entity  position="-4.46079 0.61078 -0.05092">
@@ -65,6 +66,10 @@
     <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 0.82638" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
     <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-11.641 -0.323 -0.604" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
     <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-11.332 -0.323 -2.016" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-8.564 -0.323 -2.18328" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 -9.27078" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-8.403 4.25701 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
   </a-entity>
 
   <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-18.266 1.715 -0.677" rotation="0 180 0"

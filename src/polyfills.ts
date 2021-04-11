@@ -54,7 +54,6 @@
 import 'bootstrap';
 import 'aframe';
 import 'aframe-extras';
-import 'aframe-controller-cursor-component';
 import 'aframe-teleport-controls';
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.

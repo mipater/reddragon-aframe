@@ -5,6 +5,7 @@ https://aframe.io/aframe/examples/test/layer/
 https://aframe.io/aframe/examples/showcase/ui/
 
 # Ottimizzazione
+https://github.com/aframevr/aframe/blob/master/docs/introduction/best-practices.md
 https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/
 https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-starts-4ec3bd35c6fc
 https://hacks.mozilla.org/2017/07/optimizing-performance-of-a-frame-scenes-for-mobile-devices/

@@ -10,7 +10,7 @@ https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/
 https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-starts-4ec3bd35c6fc
 https://hacks.mozilla.org/2017/07/optimizing-performance-of-a-frame-scenes-for-mobile-devices/
 
-#Interazione
+# Interazione
 https://stackoverflow.com/questions/51750339/how-to-switch-between-gaze-and-laser, https://aframe.io/docs/1.2.0/components/cursor.html#fuse-based-cursor -> aggiungere gazed input on mobile
 https://stackoverflow.com/questions/42529036/add-video-in-aframe-dynamically -> per renderizzare dinamicamente immagini
 https://codepen.io/shaunix/pen/bgBbMj checkpoint control
@@ -25,3 +25,5 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 #Backoffice
 - inserire dimensioni effettive opera (in metri)
 - scegliere dove posizionare l'opera all'interno del museo
+- https://github.com/christian-acuna/react-vr-museum
+- https://startbootstrap.com/previews/freelancer

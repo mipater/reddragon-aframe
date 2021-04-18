@@ -1,0 +1,52 @@
+.card {
+  background-color: #2c3d50;
+  color: white;
+}
+
+.card button {
+  color: #fdfdfd;
+  border-color: #377099;
+  background-color: #283748;
+}
+
+.card button:hover {
+  color: #fff;
+  background-color: #aa1617;
+  border-color: #fdfdfd;
+}
+
+::selection {
+  background-color: #aa1717;
+}
+
+.modal-content {
+  background-color: #0d1317;
+}
+
+.modal-title {
+  color: antiquewhite;
+}
+
+.modal-body {
+  color: ghostwhite;
+}
+
+#closeModal {
+  background-color: #550d0d;
+  border-color: white;
+}
+
+#closeModal:hover {
+  background-color: #681616;
+  border-color: #ffffffb8;
+}
+
+#saveChanges {
+  background-color: #202c38;
+  border-color: #fff;
+}
+
+#saveChanges:hover {
+  background-color: #2a3949;
+  border-color: #ffffffb8;
+}

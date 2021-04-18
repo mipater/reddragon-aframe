@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Art } from './art.model';
+import { Art } from '../shared/art.model';
 // @ts-ignore
 import AFRAME from 'aframe';
 import {Log} from './components/log';

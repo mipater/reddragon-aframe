@@ -32,7 +32,7 @@ export class GalleryService {
 
   constructor(private http: GalleryService) { }
 
-  getArts() {
+  getArts(): Art[] {
     return this.arts.slice();
   }
 

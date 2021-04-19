@@ -19,34 +19,32 @@
   background-color: #aa1717;
 }
 
-.modal-content {
-  background-color: #0d1317;
+.card-text strong {
+  color: #b69898;
 }
 
-.modal-title {
-  color: antiquewhite;
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #aa1617;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #1a252f;
+  opacity: 1;
+  transition: 0.4s;
 }
 
-.modal-body {
-  color: ghostwhite;
+.float:hover {
+  background-color: #aa1617;
+  opacity: 0.7;
 }
 
-#closeModal {
-  background-color: #550d0d;
-  border-color: white;
-}
-
-#closeModal:hover {
-  background-color: #681616;
-  border-color: #ffffffb8;
-}
-
-#saveChanges {
-  background-color: #202c38;
-  border-color: #fff;
-}
-
-#saveChanges:hover {
-  background-color: #2a3949;
-  border-color: #ffffffb8;
+.float svg{
+  width: inherit;
+  height: auto;
+  pointer-events: none;
 }

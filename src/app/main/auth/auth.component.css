@@ -1,10 +1,21 @@
 .container {
   margin: 10% auto;
+  color: ghostwhite;
+}
+
+.container .col-md-8 {
   padding: 5% 2%;
   background-color: #1a252f;
-  color: ghostwhite;
 }
 
 #loginBtn {
   background-color: #2c3d50;
+}
+
+input.ng-invalid.ng-dirty{
+  border: 2px solid red;
+}
+
+input.ng-valid.ng-dirty{
+  border: 2px solid #27c33b;
 }

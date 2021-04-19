@@ -15,6 +15,7 @@ import { AuthComponent } from './main/auth/auth.component';
 import { ArtEditComponent } from './main/gallery/art-edit/art-edit.component';
 import {AuthInterceptorService} from './main/auth/auth-interceptor.service';
 import {AuthGuard} from './main/auth/auth.guard';
+import { AddArtComponent } from './main/gallery/add-art/add-art.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent, children:[
@@ -36,7 +37,8 @@ const routes: Routes = [
     MainComponent,
     GalleryComponent,
     AuthComponent,
-    ArtEditComponent
+    ArtEditComponent,
+    AddArtComponent
   ],
   imports: [
     BrowserModule,

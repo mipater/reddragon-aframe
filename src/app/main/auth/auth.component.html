@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row pt-5">
-    <div class="col-md-10 mx-auto">
+    <div class="col-md-8 mx-auto">
       <!--    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>-->
+      <h2 class="mb-5">{{ isLoginMode ? 'Login' : 'Sign Up' }}</h2>
       <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
         <div class="mb-3 row">
           <label for="email" class="col-sm-2 col-form-label"> E-Mail</label>
@@ -14,6 +15,9 @@
               class="form-control"
               name="email"
               ngModel required email>
+            <div class="invalid-feedback">
+              Please insert a valid email.
+            </div>
             </div>
         </div>
         <div class="mb-3 row">
@@ -29,7 +33,7 @@
               ngModel required minlength="6">
             </div>
         </div>
-        <div>
+        <div class="mt-5">
           <button id="loginBtn" class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
             {{ isLoginMode ? 'Login' : 'Sign Up' }}
           </button>

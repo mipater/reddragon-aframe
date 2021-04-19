@@ -11,8 +11,16 @@ export class DataStorageService {
     private galleryService: GalleryService
   ) {}
 
+  storeArts() {
+    const arts = this.galleryService.getArts();
+    this.http.put<Art[]>(
+      'https://reddragon-vrmuseum-default-rtdb.firebaseio.com/arts.json',
+      arts
+    ).subscribe();
+  }
+
   fetchArts() {
-    return this.http.get<Art[]>('https://ng-complete-guide-9da49.firebaseio.com/recipes.json')
+    return this.http.get<Art[]>('https://reddragon-vrmuseum-default-rtdb.firebaseio.com/arts.json')
   }
 
 }

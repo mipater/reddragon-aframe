@@ -1,21 +1,53 @@
-<div class="offcanvas offcanvas-start" tabindex="-1" id="addArtOffcanvas" aria-labelledby="addArtOffcanvasLabel">
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="addArtOffcanvas" aria-labelledby="addArtOffcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add Art</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-    </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item">Action</a></li>
-        <li><a class="dropdown-item">Another action</a></li>
-        <li><a class="dropdown-item">Something else here</a></li>
-      </ul>
-    </div>
+
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+        <div id="nameHelp" class="form-text">Name of the art.</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp">
+        <div id="descriptionHelp" class="form-text">Max XXX char.</div>
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Image</label>
+        <input type="file" class="form-control" id="img" aria-describedby="imgHelp">
+        <div id="imgHelp" class="form-text">Max XXX filesize.</div>
+      </div>
+      <div class="mb-3">
+        <label for="width" class="form-label">Width</label>
+        <input type="number" class="form-control" placeholder="es: 0.5 or 1.2" min="0.1" max="6" step="0.1" id="width" aria-describedby="widthHelp">
+        <div id="widthHelp" class="form-text">In Meters.</div>
+      </div>
+      <div class="mb-3">
+        <label for="height" class="form-label">Height</label>
+        <input type="number" class="form-control" placeholder="es: 0.5 or 1.2" min="0.1" max="6" step="0.1" id="height" aria-describedby="heightHelp">
+        <div id="heightHelp" class="form-text">In Meters.</div>
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" aria-describedby="authorHelp">
+        <div id="authorHelp" class="form-text">Name of the author.</div>
+      </div>
+
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          Actions
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" (click)="onAddArt()">Add</a></li>
+          <li><a class="dropdown-item" (click)="onLoadArt()">Clear</a></li>
+        </ul>
+      </div>
+    </form>
+
   </div>
 </div>

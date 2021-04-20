@@ -23,7 +23,8 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - audio ambiente
 
 #Backoffice
-- inserire dimensioni effettive opera (in metri)
 - scegliere dove posizionare l'opera all'interno del museo
 - https://github.com/christian-acuna/react-vr-museum
 - https://startbootstrap.com/previews/freelancer
+- https://gist.github.com/gordonbrander/2230317
+- https://jsfiddle.net/bootstrapious/8w7a50n2

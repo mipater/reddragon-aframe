@@ -7,6 +7,7 @@ import {AframeService} from './aframe.service';
   styleUrls: ['./aframe.component.css']
 })
 export class AframeComponent implements OnInit {
+  id = 'id-0'
 
   constructor(private aframeService: AframeService) {
     aframeService.registerSystems(['data-manager']);

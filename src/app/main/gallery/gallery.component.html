@@ -2,15 +2,15 @@
   <h1 class="text-center" style="color: floralwhite;">GALLERY</h1>
 </div>
 
-<div *ngIf="cards.length > 0" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
+<div *ngIf="arts.length > 0" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
   <div class="container">
     <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" *ngFor="let card of cards; let i = index">
+        <div class="col" *ngFor="let art of arts; let i = index">
           <div class="card shadow-sm">
             <img src="https://picsum.photos/419/225" alt="">
             <div class="card-body">
-              <p class="card-text"><strong>Title:</strong> Ultima Cena</p>
-              <p class="card-text text-truncate"><strong>Description:</strong> La scena dell’Ultima Cena rappresentata nel Cenacolo vinciano...</p>
+              <p class="card-text"><strong>Title:</strong> {{ art.title }}</p>
+              <p class="card-text text-truncate"><strong>Description:</strong> {{ art.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" data-bs-toggle="modal" data-bs-target="#viewArtModal" class="btn btn-sm btn-outline-secondary">View</button>

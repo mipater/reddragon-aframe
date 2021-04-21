@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Art} from '../../shared/art.model';
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class GalleryService {
+  artsChanged = new Subject<Art[]>();
   private arts: Art[] = [];
 
   constructor() { }
@@ -11,10 +13,15 @@ export class GalleryService {
     return this.arts.slice();
   }
 
-  setRecipes(arts: Art[]) {
+  setArts(arts: Art[]) {
     this.arts = arts;
     console.log(this.arts);
-    //this.recipesChanged.next(this.recipes.slice());
+    this.artsChanged.next(this.arts.slice());
+  }
+
+  addArt(art: Art) {
+    this.arts.push(art);
+    this.artsChanged.next(this.arts.slice());
   }
 
 }

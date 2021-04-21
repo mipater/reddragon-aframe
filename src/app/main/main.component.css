@@ -40,3 +40,8 @@
   background-color: whitesmoke;
 }
 
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #2f3137;
+  border-color: #fff;
+}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -16,11 +16,12 @@ import { ArtEditComponent } from './main/gallery/art-edit/art-edit.component';
 import {AuthInterceptorService} from './main/auth/auth-interceptor.service';
 import {AuthGuard} from './main/auth/auth.guard';
 import { AddArtComponent } from './main/gallery/add-art/add-art.component';
+import { ArtsResolverService } from './main/gallery/arts-resolver.service';
 
 const routes: Routes = [
   {path: '', component: MainComponent, children:[
       {path: '', component: HomepageComponent},
-      {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard]},
+      {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard], resolve: [ArtsResolverService]},
       {path: 'auth', component: AuthComponent},
     ]},
   {path: 'aframe', component: AframeComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],

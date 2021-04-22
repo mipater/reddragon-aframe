@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { GalleryService } from '../main/gallery/gallery.service';
 import { Art } from './art.model';
-import { tap } from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import { Constants } from './constants.model';
+import {of, throwError} from "rxjs";
+
+interface ArtData {
+  _id: string;
+  _title: string;
+  _description: string;
+  _imgSrc: string;
+  _dimensions: { width: number, height: number };
+  _author: string;
+}
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -23,13 +33,8 @@ export class DataStorageService {
   }
 
   fetchArts() {
-    return this.http.get<Art[]>(
+    return this.http.get<ArtData[]>(
       Constants.FB_DBRT_PATH
-    )
-    .pipe(
-      tap(arts => {
-        this.galleryService.setArts(arts);
-      })
     );
   }
 

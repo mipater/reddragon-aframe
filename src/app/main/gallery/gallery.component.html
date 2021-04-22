@@ -2,12 +2,12 @@
   <h1 class="text-center" style="color: floralwhite;">GALLERY</h1>
 </div>
 
-<div *ngIf="arts.length > 0" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
+<div *ngIf="!isLoading && !error; else empty" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
   <div class="container">
-    <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 g-3">
         <div class="col" *ngFor="let art of arts; let i = index">
           <div class="card shadow-sm">
-            <img src="https://picsum.photos/419/225" alt="">
+            <img [src]="art.imgSrc" alt="" style="object-fit: cover; height: 310px" class="img-fluid">
             <div class="card-body">
               <p class="card-text"><strong>Title:</strong> {{ art.title }}</p>
               <p class="card-text text-truncate"><strong>Description:</strong> {{ art.description }}</p>
@@ -26,11 +26,13 @@
 </div>
 
 <!-- Gallery Empty -->
-<div class="album py-5" style="background-color: #1a252f !important;">
-  <div class="text-center row g-3" *ngIf="cards.length == 0">
-    <h5 style="color: antiquewhite">There are no arts yet. Add one</h5>
+<ng-template #empty>
+  <div class="album py-5" style="background-color: #1a252f !important;">
+    <div class="text-center row g-3">
+      <h5 style="color: antiquewhite">There are no arts yet. Add one</h5>
+    </div>
   </div>
-</div>
+</ng-template>
 
 <!-- Modal -->
 <div class="modal fade" id="viewArtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

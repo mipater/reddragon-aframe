@@ -21,7 +21,7 @@ import { ArtsResolverService } from './main/gallery/arts-resolver.service';
 const routes: Routes = [
   {path: '', component: MainComponent, children:[
       {path: '', component: HomepageComponent},
-      {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard], resolve: [ArtsResolverService]},
+      {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard], resolve: {arts: ArtsResolverService}},
       {path: 'auth', component: AuthComponent},
     ]},
   {path: 'aframe', component: AframeComponent},

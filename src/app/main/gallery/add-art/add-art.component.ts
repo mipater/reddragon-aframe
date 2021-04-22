@@ -42,7 +42,7 @@ export class AddArtComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.addArtForm.value;
-
+    console.log(this.image)
     if (this.image) {
       this.dataStorageService
         .uploadImage(this.image)
@@ -51,7 +51,7 @@ export class AddArtComponent implements OnInit {
             random_id(),
             formValue.title,
             formValue.description,
-            Constants.FB_DBRT_PATH + image.name + '?alt=media',
+            Constants.FB_STORAGE_PATH + image.name + '?alt=media',
             formValue.dimensions.width,
             formValue.dimensions.height,
             formValue.author
@@ -65,5 +65,6 @@ export class AddArtComponent implements OnInit {
 
   onFileChange(event) {
     this.image = <File> event.target.files[0];
+    console.log(this.image)
   }
 }

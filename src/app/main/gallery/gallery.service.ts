@@ -15,7 +15,6 @@ export class GalleryService {
 
   setArts(arts: Art[]) {
     this.arts = arts;
-    console.log(this.arts);
     this.artsChanged.next(this.arts.slice());
   }
 

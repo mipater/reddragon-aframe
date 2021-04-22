@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GalleryComponent implements OnInit, OnDestroy {
   arts: Art[];
+  art: Art;
   subscription: Subscription;
   isLoading = true;
   error = false;
@@ -31,6 +32,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
       .subscribe(
         (arts: Art[]) => {
           this.arts = arts;
+          this.isLoading = false;
+          this.error = false;
         }
       );
     this.isLoading = false;
@@ -40,6 +43,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onViewArt(art: Art) {
+    this.art = art;
+  }
 }
 
 //TODO: Pagination

@@ -13,7 +13,7 @@
               <p class="card-text text-truncate"><strong>Description:</strong> {{ art.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#viewArtModal" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#viewArtModal" class="btn btn-sm btn-outline-secondary" (click)="onViewArt(art)">View</button>
                   <button type="button" data-bs-toggle="offcanvas" data-bs-target="#editArtOffcanvas" aria-controls="editArtOffcanvas" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-muted">{{i+1}}</small>
@@ -34,8 +34,8 @@
   </div>
 </ng-template>
 
-<!-- Modal -->
-<div class="modal fade" id="viewArtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- View Art - Modal -->
+<div *ngIf="art" class="modal fade" id="viewArtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -43,7 +43,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Placeholder text for this demonstration of a vertically centered modal dialog.
+        <img [src]="art.imgSrc" alt="" style="object-fit: cover; height: 310px" class="img-fluid">
       </div>
       <div class="modal-footer">
         <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

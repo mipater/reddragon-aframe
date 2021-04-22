@@ -32,17 +32,8 @@ export class AddArtComponent implements OnInit {
     })
   }
 
-  onAddArt() {
-    this.dataStorageService.storeArts();
-  }
-
-  onLoadArt() {
-    this.dataStorageService.fetchArts();
-  }
-
   onSubmit() {
     const formValue = this.addArtForm.value;
-    console.log(this.image)
     if (this.image) {
       this.dataStorageService
         .uploadImage(this.image)
@@ -52,8 +43,10 @@ export class AddArtComponent implements OnInit {
             formValue.title,
             formValue.description,
             Constants.FB_STORAGE_PATH + image.name + '?alt=media',
-            formValue.dimensions.width,
-            formValue.dimensions.height,
+            {
+              width: formValue.dimensions.width,
+              height: formValue.dimensions.height,
+            },
             formValue.author
           );
           this.galleryService.addArt(newArt);
@@ -61,10 +54,10 @@ export class AddArtComponent implements OnInit {
           console.log('Art Added');
         });
     }
+    this.addArtForm.reset();
   }
 
   onFileChange(event) {
     this.image = <File> event.target.files[0];
-    console.log(this.image)
   }
 }

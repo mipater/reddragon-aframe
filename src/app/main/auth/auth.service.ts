@@ -99,7 +99,7 @@ export class AuthService {
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 60000);
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 3600);
     const user = new User(
       email,
       userId,
@@ -107,7 +107,7 @@ export class AuthService {
       expirationDate
     );
     this.user.next(user);
-    this.autoLogout(expiresIn * 60000);
+    this.autoLogout(expiresIn * 3600);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 

@@ -48,3 +48,11 @@
   height: auto;
   pointer-events: none;
 }
+
+.modal-body strong {
+  color: #b69898;
+}
+
+.modal-body p {
+  color: #f5f5f5;
+}

@@ -11,12 +11,12 @@
   color: ghostwhite;
 }
 
-#closeModal {
+.close-modal{
   background-color: #550d0d;
   border-color: white;
 }
 
-#closeModal:hover {
+.close-modal:hover {
   background-color: #681616;
   border-color: #ffffffb8;
 }

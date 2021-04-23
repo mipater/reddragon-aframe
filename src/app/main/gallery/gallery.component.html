@@ -2,7 +2,7 @@
   <h1 class="text-center" style="color: floralwhite;">GALLERY</h1>
 </div>
 
-<div *ngIf="!isLoading && !error; else empty" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
+<div *ngIf="isGalleryReady(); else galleryEmpty" class="album pt-1 pb-5 bg-light" style="background-color: #1a252f !important;">
   <div class="container">
     <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 g-3">
         <div class="col" *ngFor="let art of arts; let i = index">
@@ -15,6 +15,7 @@
                 <div class="btn-group">
                   <button type="button" data-bs-toggle="modal" data-bs-target="#viewArtModal" class="btn btn-sm btn-outline-secondary" (click)="onViewArt(art)">View</button>
                   <button type="button" data-bs-toggle="offcanvas" data-bs-target="#editArtOffcanvas" aria-controls="editArtOffcanvas" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#deleteArtModal" class="btn btn-sm btn-outline-secondary bg-danger" (click)="onDeleteArt(i)">Delete</button>
                 </div>
                 <small class="text-muted">{{i+1}}</small>
               </div>
@@ -25,8 +26,8 @@
   </div>
 </div>
 
-<!-- Gallery Empty -->
-<ng-template #empty>
+<!-- Gallery Is Empty -->
+<ng-template #galleryEmpty>
   <div class="album py-5" style="background-color: #1a252f !important;">
     <div class="text-center row g-3">
       <h5 style="color: antiquewhite">There are no arts yet. Add one</h5>
@@ -35,11 +36,11 @@
 </ng-template>
 
 <!-- View Art - Modal -->
-<div class="modal fade" id="viewArtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewArtModal" tabindex="-1" aria-labelledby="viewArtModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Art ID: {{ art?.id }}</h5>
+        <h5 class="modal-title" id="viewArtModalLabel">Art ID: {{ art?.id }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -53,7 +54,26 @@
         <h5><strong>Author:</strong></h5><p>{{ art?.author }}</p>
       </div>
       <div class="modal-footer">
-        <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="closeViewArtModal" type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Conferm Delete Art - Modal -->
+<div class="modal fade" id="deleteArtModal" tabindex="-1" aria-labelledby="deleteArtModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteArtModalLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3 class="text-danger">Are you sure you want to delete this art?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal" (click)="deleteArt()">Yes</button>
       </div>
     </div>
   </div>
@@ -62,6 +82,7 @@
 <app-art-edit></app-art-edit>
 <app-add-art></app-add-art>
 
+<!-- Add Art - Btn -->
 <span class="float" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Art">
   <button class="btn float d-flex p-0" data-bs-toggle="offcanvas" data-bs-target="#addArtOffcanvas" aria-controls="addArtOffcanvas">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">

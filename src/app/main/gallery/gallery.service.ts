@@ -23,4 +23,8 @@ export class GalleryService {
     this.artsChanged.next(this.arts.slice());
   }
 
+  updateArts(arts: Art[]) {
+    this.arts = arts;
+  }
+
 }

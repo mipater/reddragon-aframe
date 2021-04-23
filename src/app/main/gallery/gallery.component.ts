@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GalleryComponent implements OnInit, OnDestroy {
   arts: Art[];
   art: Art;
+  artIndex: number;
   subscription: Subscription;
   isLoading = true;
   error = false;
@@ -24,7 +25,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
     if (Array.isArray(resolvedData)) {
       this.arts = resolvedData;
     } else {
-      console.log(resolvedData)
       this.error = true;
     }
 
@@ -46,6 +46,18 @@ export class GalleryComponent implements OnInit, OnDestroy {
   onViewArt(art: Art) {
     this.art = art;
   }
-}
 
-//TODO: Pagination
+  onDeleteArt(index: number) {
+    this.artIndex = index;
+  }
+
+  deleteArt() {
+    if (this.artIndex > -1) {
+      this.galleryService.updateArts(this.arts.splice(this.artIndex, 1));
+    }
+  }
+
+  isGalleryReady(): boolean {
+    return !this.isLoading && !this.error && this.arts.length > 0;
+  }
+}

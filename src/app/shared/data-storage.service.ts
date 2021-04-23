@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { GalleryService } from '../main/gallery/gallery.service';
 import { Art } from './art.model';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, map, retry, tap} from 'rxjs/operators';
 import { Constants } from './constants.model';
 import {of, throwError} from "rxjs";
 
@@ -24,7 +24,6 @@ export class DataStorageService {
 
   storeArts() {
     const arts = this.galleryService.getArts();
-
     this.http.put<Art[]>(
       Constants.FB_DBRT_PATH,
       arts
@@ -42,7 +41,16 @@ export class DataStorageService {
     return this.http.post<File>(
       Constants.FB_STORAGE_PATH + image.name + '?alt=media',
       image
+    );
+  }
+
+  deleteImage(name: string) {
+    return this.http.delete<any>(
+      name,
     )
+    .pipe(
+      retry(1)
+    );
   }
 
 }

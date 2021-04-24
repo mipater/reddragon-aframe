@@ -45,7 +45,7 @@ export class DataStorageService {
   }
 
   deleteImage(name: string) {
-    return this.http.delete<any>(
+    return this.http.delete<File>(
       name,
     )
     .pipe(

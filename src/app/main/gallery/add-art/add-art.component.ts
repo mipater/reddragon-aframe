@@ -1,12 +1,8 @@
 // @ts-nocheck
 import { Component, OnInit } from '@angular/core';
 import {DataStorageService} from '../../../shared/data-storage.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {GalleryService} from '../gallery.service';
-import {Art} from '../../../shared/art.model';
-import {random_id} from '../../../shared/utils';
-import { Constants } from '../../../shared/constants.model';
-import {tap} from 'rxjs/operators';
+import {FormGroup} from '@angular/forms';
+import {FormService} from '../form.service';
 
 @Component({
   selector: 'app-add-art',
@@ -17,42 +13,16 @@ export class AddArtComponent implements OnInit {
   addArtForm: FormGroup;
   image: File = null;
 
-  constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService) { }
+  constructor(private dataStorageService: DataStorageService, private formService: FormService) { }
 
   ngOnInit(): void {
-    this.addArtForm = new FormGroup({
-      'title': new FormControl(null,  [Validators.required]),
-      'description': new FormControl(null,  [Validators.required]),
-      'image': new FormControl(null,  [Validators.required]),
-      'dimensions': new FormGroup({
-        'width': new FormControl(null,  [Validators.required, Validators.min(0.1), Validators.max(6)]),
-        'height': new FormControl(null,  [Validators.required, Validators.min(0.1), Validators.max(6)]),
-      }),
-      'author': new FormControl(null,  [Validators.required])
-    })
+    this.addArtForm = this.formService.form;
   }
 
   onSubmit() {
     const formValue = this.addArtForm.value;
     if (this.image) {
-      this.dataStorageService
-        .uploadImage(this.image)
-        .subscribe(image => {
-          const newArt: Art = new Art(
-            random_id(),
-            formValue.title,
-            formValue.description,
-            Constants.FB_STORAGE_PATH + image.name + '?alt=media',
-            {
-              width: formValue.dimensions.width,
-              height: formValue.dimensions.height,
-            },
-            formValue.author
-          );
-          this.galleryService.addArt(newArt);
-          this.dataStorageService.storeArts();
-          console.log('Art Added');
-        });
+      this.formService.submitNewArt(formValue, this.image);
     }
     this.addArtForm.reset();
   }

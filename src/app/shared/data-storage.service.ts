@@ -38,14 +38,14 @@ export class DataStorageService {
   }
 
   uploadImage(image: File) {
-    return this.http.post<File>(
+    return this.http.post<any>(
       Constants.FB_STORAGE_PATH + image.name + '?alt=media',
       image
     );
   }
 
   deleteImage(name: string) {
-    return this.http.delete<File>(
+    return this.http.delete<any>(
       name,
     )
     .pipe(

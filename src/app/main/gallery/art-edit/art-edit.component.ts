@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataStorageService} from '../../../shared/data-storage.service';
 import {GalleryService} from '../gallery.service';
 import {FormGroup} from '@angular/forms';
@@ -17,18 +17,18 @@ export class ArtEditComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService, private formService: FormService) { }
 
   ngOnInit(): void {
-    this.editArtForm = this.formService.form;
+    this.editArtForm = this.formService.editArtForm;
   }
 
   onSubmit() {
     const formValue = this.editArtForm.value;
-    if (this.image) {
+    if (this.editArtForm.dirty && this.editArtForm.valid) {
       this.formService.updateArt(formValue, this.image);
     }
-    this.addArtForm.reset();
   }
 
   onFileChange(event) {
     this.image = <File> event.target.files[0];
   }
+
 }

@@ -9,10 +9,12 @@ import {GalleryService} from './gallery.service';
 
 @Injectable({providedIn: 'root'})
 export class FormService {
-  form: FormGroup;
+  addArtForm: FormGroup;
+  editArtForm: FormGroup;
+  artToEdit: Art;
 
   constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService) {
-    this.form = new FormGroup({
+    this.addArtForm = new FormGroup({
       'title': new FormControl(null,  [Validators.required]),
       'description': new FormControl(null,  [Validators.required]),
       'image': new FormControl(null,  [Validators.required]),
@@ -22,9 +24,33 @@ export class FormService {
       }),
       'author': new FormControl(null,  [Validators.required])
     });
+    this.editArtForm = new FormGroup({
+      'title': new FormControl(null),
+      'description': new FormControl(null),
+      'image': new FormControl(null),
+      'dimensions': new FormGroup({
+        'width': new FormControl(null,  [Validators.min(0.1), Validators.max(6)]),
+        'height': new FormControl(null,  [Validators.min(0.1), Validators.max(6)]),
+      }),
+      'author': new FormControl(null)
+    });
   }
 
-  submitNewArt(formValue, image){
+  setEditFormValues(art: Art): void {
+    this.artToEdit = art;
+    this.editArtForm.setValue({
+      'title': art.title,
+      'description': art.description,
+      'image': null,
+      'dimensions': {
+        'width': art.dimensions.width,
+        'height': art.dimensions.height
+      },
+      'author': art.author
+    })
+  }
+
+  submitNewArt(formValue, image):void {
     this.dataStorageService
       .uploadImage(image)
       .subscribe(image => {
@@ -45,8 +71,28 @@ export class FormService {
       });
   }
 
-  updateArt(formValue, image) {
+  updateArt(modifiedArt, image: File = null): void {
+    const newArt: Art = new Art(
+      this.artToEdit.id,
+      modifiedArt.title || this.artToEdit.title,
+      modifiedArt.description || this.artToEdit.description,
+      image ? Constants.FB_STORAGE_PATH + image.name + '?alt=media' : this.artToEdit.imgSrc,
+      modifiedArt.dimensions || this.artToEdit.dimensions,
+      modifiedArt.author || this.artToEdit.author
+    )
 
+    if (image) {
+      this.dataStorageService.deleteImage(this.artToEdit.imgSrc)
+        .subscribe(() => {
+          this.dataStorageService.uploadImage(image).subscribe(() => {
+            this.galleryService.modifyArt(this.artToEdit, newArt);
+            this.dataStorageService.storeArts();
+          });
+        });
+    } else {
+      this.galleryService.modifyArt(this.artToEdit, newArt);
+      this.dataStorageService.storeArts();
+    }
   }
 
 }

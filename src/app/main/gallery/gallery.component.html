@@ -14,7 +14,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" data-bs-toggle="modal" data-bs-target="#viewArtModal" class="btn btn-sm btn-outline-secondary" (click)="onViewArt(art)">View</button>
-                  <button type="button" data-bs-toggle="offcanvas" data-bs-target="#editArtOffcanvas" aria-controls="editArtOffcanvas" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" data-bs-toggle="offcanvas" data-bs-target="#editArtOffcanvas" aria-controls="editArtOffcanvas" class="btn btn-sm btn-outline-secondary" (click)="onEditArt(art)">Edit</button>
                   <button type="button" data-bs-toggle="modal" data-bs-target="#deleteArtModal" class="btn btn-sm btn-outline-secondary bg-danger" (click)="onDeleteArt(i)">Delete</button>
                 </div>
                 <small class="text-muted">{{i+1}}</small>
@@ -69,7 +69,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h3 class="text-danger">Are you sure you want to delete this art?</h3>
+        <h4 class="text-danger">Are you sure you want to delete this art?</h4>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">No</button>

@@ -23,4 +23,11 @@ export class GalleryService {
     this.artsChanged.next(this.arts.slice());
   }
 
+  modifyArt(oldArt: Art, newArt: Art) {
+    const artIndex = this.arts.findIndex(art => art.id === oldArt.id);
+    this.arts[artIndex] = newArt;
+    this.artsChanged.next(this.arts.slice());
+    console.log('art updated');
+  }
+
 }

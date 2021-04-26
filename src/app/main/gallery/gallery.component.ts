@@ -5,6 +5,7 @@ import {GalleryService} from './gallery.service';
 import {Subscription} from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {DataStorageService} from '../../shared/data-storage.service';
+import {FormService} from './form.service';
 
 @Component({
   selector: 'app-gallery',
@@ -15,11 +16,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
   arts: Art[];
   art: Art;
   artIndex: number;
-  subscription: Subscription;
+  artsChanged: Subscription;
   isLoading = true;
   error = false;
 
-  constructor(private galleryService: GalleryService, private dataStorageService: DataStorageService, private route: ActivatedRoute) { }
+  constructor(private galleryService: GalleryService,
+              private dataStorageService: DataStorageService,
+              private formService: FormService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const resolvedData: Art[] | string = this.route.snapshot.data.arts;
@@ -29,7 +33,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.error = true;
     }
 
-    this.subscription = this.galleryService.artsChanged
+    this.artsChanged = this.galleryService.artsChanged
       .subscribe(
         (arts: Art[]) => {
           this.arts = arts;
@@ -41,15 +45,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.artsChanged.unsubscribe();
   }
 
   onViewArt(art: Art) {
     this.art = art;
   }
 
-  onDeleteArt(index: number) {
-    this.artIndex = index;
+  onDeleteArt(i: number) {
+    this.artIndex = i;
   }
 
   deleteArt() {
@@ -66,5 +70,10 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   isGalleryReady(): boolean {
     return !this.isLoading && !this.error && this.arts.length > 0;
+  }
+
+  onEditArt(art: Art) {
+    this.art = art;
+    this.formService.setEditFormValues(art);
   }
 }

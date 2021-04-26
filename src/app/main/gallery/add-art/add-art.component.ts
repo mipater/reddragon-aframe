@@ -16,7 +16,7 @@ export class AddArtComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService, private formService: FormService) { }
 
   ngOnInit(): void {
-    this.addArtForm = this.formService.form;
+    this.addArtForm = this.formService.addArtForm;
   }
 
   onSubmit() {

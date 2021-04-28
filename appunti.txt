@@ -9,6 +9,7 @@ https://github.com/aframevr/aframe/blob/master/docs/introduction/best-practices.
 https://shkspr.mobi/blog/2016/08/reducing-the-filesize-of-complex-3d-obj-models/
 https://medium.com/samsung-internet-dev/optimising-a-frame-assets-for-faster-starts-4ec3bd35c6fc
 https://hacks.mozilla.org/2017/07/optimizing-performance-of-a-frame-scenes-for-mobile-devices/
+https://aframe.io/docs/1.2.0/introduction/best-practices.html#sidebar
 
 # Interazione
 https://stackoverflow.com/questions/51750339/how-to-switch-between-gaze-and-laser, https://aframe.io/docs/1.2.0/components/cursor.html#fuse-based-cursor -> aggiungere gazed input on mobile
@@ -27,3 +28,4 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - https://github.com/christian-acuna/react-vr-museum
 - https://startbootstrap.com/previews/freelancer
 - https://gist.github.com/gordonbrander/2230317
+- https://www.kaggle.com/ikarus777/best-artworks-of-all-time

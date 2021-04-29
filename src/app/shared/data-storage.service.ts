@@ -8,6 +8,7 @@ import {of, throwError} from "rxjs";
 
 interface ArtData {
   _id: string;
+  _position: string;
   _title: string;
   _description: string;
   _imgSrc: string;

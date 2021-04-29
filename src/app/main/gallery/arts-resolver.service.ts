@@ -21,7 +21,7 @@ export class ArtsResolverService implements Resolve<Art[] | string> {
           map((arts) => {
             let artsArray: Art[] = [];
             arts.forEach(art => {
-              artsArray.push(new Art(art._id, art._title, art._description, art._imgSrc, art._dimensions, art._author));
+              artsArray.push(new Art(art._id, art._position, art._title, art._description, art._imgSrc, art._dimensions, art._author));
             })
             return artsArray;
           }),

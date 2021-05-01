@@ -20,6 +20,7 @@ export class AddArtComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.addArtForm.value);
     const formValue = this.addArtForm.value;
     if (this.image) {
       this.formService.submitNewArt(formValue, this.image);

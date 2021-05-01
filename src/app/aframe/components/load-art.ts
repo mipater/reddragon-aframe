@@ -15,16 +15,16 @@ export class LoadArt {
         this.parentNode = this.el.parentNode;
 
         // get art dimensions
-        this.art = this.arts.find(art => art.id === this.data);
+        console.log(this.data);
+        this.art = this.arts.find(art => art.position === this.data);
         const dimensions = this.art.dimensions;
-        const newWidth = dimensions.width+0.300;
-        const newHeight = dimensions.height+0.300;
+
         // load and resize image
-        this.parentNode.setAttribute('depth', newWidth+0.300);
-        this.parentNode.setAttribute('height', newHeight+0.200);
+        this.parentNode.setAttribute('depth', dimensions.width+0.300);
+        this.parentNode.setAttribute('height', dimensions.height+0.200);
         this.el.setAttribute('material', 'src: ' + this.art.imgSrc);
-        this.el.setAttribute('width', newWidth);
-        this.el.setAttribute('height', newHeight);
+        this.el.setAttribute('width', dimensions.width);
+        this.el.setAttribute('height', dimensions.height);
       },
     });
   }

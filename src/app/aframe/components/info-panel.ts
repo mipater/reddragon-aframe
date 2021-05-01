@@ -12,10 +12,6 @@ export class InfoPanel {
         this.system = document.querySelector('a-scene').systems['data-manager'];
         this.arts = this.system.getArts();
         this.frame = this.el.parentNode;
-
-        this.el.addEventListener('raycaster-intersected', evt => {
-          this.intersectionPoint = evt.detail.getIntersection(this.el);
-        });
       },
 
       events: {
@@ -24,24 +20,20 @@ export class InfoPanel {
             this.closePanel();
             return;
           }
-          console.log('This entity was clicked!', this.data);
-          this.art = this.arts.find(art => art.id === this.data);
-          this.createInfoPanel(this.intersectionPoint.point);
+          this.art = this.arts.find(art => art.position === this.data);
+          this.createInfoPanel();
         }
       },
 
       closePanel: function() {
         this.infoPanelEl.parentNode.removeChild(this.infoPanelEl);
         this.infoPanelEl = null;
-        console.log('This entity already exist!');
       },
 
-      createInfoPanel: function(intersectionPoint) {
+      createInfoPanel: function() {
         const sceneEl = document.querySelector('a-scene');
         let entityEl = document.createElement('a-entity');
 
-        // set panel position from intersection point
-        //entityEl.setAttribute('position', {x: intersectionPoint.x+1.200, y: intersectionPoint.y + 0.200, z: intersectionPoint.z+0.900});
         entityEl.setAttribute('position', {x: -0.522, y: 0, z: -0.024});
         entityEl.setAttribute('geometry', {primitive: 'plane', width: 2.500, height: 1.800});
         entityEl.setAttribute('rotation', {x: 0, y: 270, z: 0});

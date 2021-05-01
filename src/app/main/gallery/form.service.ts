@@ -22,6 +22,7 @@ export class FormService {
         'width': new FormControl(null,  [Validators.required, Validators.min(0.1), Validators.max(6)]),
         'height': new FormControl(null,  [Validators.required, Validators.min(0.1), Validators.max(6)]),
       }),
+      'position': new FormControl(null, [Validators.required]),
       'author': new FormControl(null,  [Validators.required])
     });
     this.editArtForm = new FormGroup({
@@ -32,6 +33,7 @@ export class FormService {
         'width': new FormControl(null,  [Validators.min(0.1), Validators.max(6)]),
         'height': new FormControl(null,  [Validators.min(0.1), Validators.max(6)]),
       }),
+      'position': new FormControl(null),
       'author': new FormControl(null)
     });
   }
@@ -46,6 +48,7 @@ export class FormService {
         'width': art.dimensions.width,
         'height': art.dimensions.height
       },
+      'position': art.position,
       'author': art.author
     })
   }
@@ -56,6 +59,7 @@ export class FormService {
       .subscribe(image => {
         const newArt: Art = new Art(
           random_id(),
+          formValue.position,
           formValue.title,
           formValue.description,
           Constants.FB_STORAGE_PATH + image.name + '?alt=media',
@@ -72,8 +76,10 @@ export class FormService {
   }
 
   updateArt(modifiedArt, image: File = null): void {
+    console.log(image);
     const newArt: Art = new Art(
       this.artToEdit.id,
+      modifiedArt.position || this.artToEdit.position,
       modifiedArt.title || this.artToEdit.title,
       modifiedArt.description || this.artToEdit.description,
       image ? Constants.FB_STORAGE_PATH + image.name + '?alt=media' : this.artToEdit.imgSrc,

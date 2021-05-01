@@ -24,7 +24,7 @@ const routes: Routes = [
       {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard], resolve: {arts: ArtsResolverService}},
       {path: 'auth', component: AuthComponent},
     ]},
-  {path: 'aframe', component: AframeComponent},
+  {path: 'aframe', component: AframeComponent, resolve: {arts: ArtsResolverService}},
   {path: '**', redirectTo: '/'}
 ];
 

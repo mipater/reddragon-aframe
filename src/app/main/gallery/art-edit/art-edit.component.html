@@ -33,6 +33,30 @@
         </div>
       </div>
       <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <select id="position" class="form-select" aria-label=".form-select-sm example" formControlName="position">
+          <option selected>Select the position</option>
+          <optgroup label="ROOM 1">
+            <option value="r1-l1">Left 1</option>
+            <option value="r1-l2">Left 2</option>
+            <option value="r1-l3">Left 3</option>
+            <option value="r1-f">Front</option>
+            <option value="r1-r1">Right 1</option>
+            <option value="r1-r2">Right 2</option>
+            <option value="r1-r3">Right 3</option>
+          </optgroup>
+          <optgroup label="ROOM 2">
+            <option value="r2-l1">Left 1</option>
+            <option value="r2-l2">Left 2</option>
+            <option value="r2-l3">Left 3</option>
+            <option value="r2-f">Front</option>
+            <option value="r2-r1">Right 1</option>
+            <option value="r2-r2">Right 2</option>
+            <option value="r2-r3">Right 3</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="mb-3">
         <label for="author" class="form-label">Author</label>
         <input type="text" class="form-control" id="author" aria-describedby="authorHelp" formControlName="author">
         <div id="authorHelp" class="form-text">Name of the author.</div>

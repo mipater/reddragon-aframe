@@ -6,7 +6,7 @@
     <img id="cloth" src="assets/materials/cloth.jpg">
   </a-assets>
 
-  <a-entity position="-8.25839 4.25701 -19.65318" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" checkpoint-controls="mode: animate">
+  <a-entity position="-14.907 1.6 0" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" checkpoint-controls="mode: animate">
     <a-entity id="camera" camera position="0 1.5 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
@@ -53,33 +53,62 @@
 
   <!-- Checkpoints -->
   <a-entity  position="-4.46079 0.61078 -0.05092">
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-6.02791 -0.323 -4.66895" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-1.46578 -0.32278 0.84273" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 0.82638" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-11.641 -0.323 -0.604" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-11.332 -0.323 -2.016" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-8.564 -0.323 -2.18328" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 -9.27078" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="2.12299 -0.32278 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint="" radius="0.3" height="0.1" position="-8.403 4.25701 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-6.02791 -0.323 -4.66895" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-1.46578 -0.32278 0.84273" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 -0.32278 0.82638" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-11.641 -0.323 -0.604" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-11.332 -0.323 -2.016" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder id="r1-l1" checkpoint radius="0.3" height="0.1" position="-11.332 -0.323 0.859" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder id="r1-l2" checkpoint radius="0.3" height="0.1" position="-7.578 -0.323 0.859" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder id="r1-l3" checkpoint radius="0.3" height="0.1" position="-3.953 -0.323 0.859" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-7.578 -0.323 -2.18328" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-3.953 -0.323 -2.18328" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 -0.32278 -9.27078" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 -0.32278 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.3" height="0.1" position="-8.403 4.25701 -19.65318" color="#39BB82" material="" geometry="" class="clickable"></a-cylinder>
   </a-entity>
 
-  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-18.266 1.715 -0.677" rotation="0 180 0"
-         depth="1.570" height="1.990" width="0.1">
-    <a-image load-art="r1-f" height="0.800" width="0.860" position="-0.056 0 0" rotation="0 270 0"></a-image>
-    <a-entity class="panel-btn clickable" info-panel="r1-f" position="0.00723 -0.11196 0.9908" geometry="depth: 0.09; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  <!--ROOM1 - FRONT-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-18.234 1.715 -0.677" rotation="0 180 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-f" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-f" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
   </a-box>
-
+  <!--ROOM1 - LEFT1-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-15.807 1.715 2.550" rotation="0 270 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-l1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-l1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  </a-box>
+  <!--ROOM1 - LEFT2-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-12.070 1.715 2.550" rotation="0 270 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-l2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-l2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  </a-box>
+  <!--ROOM1 - LEFT3-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-8.491 1.715 2.550" rotation="0 270 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-l3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-l3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  </a-box>
+<!--ROOM1 - RIGHT1-->
   <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-15.807 1.715 -4.082" rotation="0 90 0"
-         depth="1.570" height="1.990" width="0.1">
-    <a-image load-art="r1-r1" height="0.800" width="0.860" position="-0.056 0 0" rotation="0 270 0"></a-image>
-    <a-entity class="panel-btn clickable" info-panel="r1-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0.09; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-r1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
   </a-box>
-
-  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-13.056 1.715 -4.082" rotation="0 90 0"
-         depth="1.570" height="1.990" width="0.1">
-    <a-image load-art="r1-r2" height="0.800" width="0.860" position="-0.056 0 0" rotation="0 270 0"></a-image>
-    <a-entity class="panel-btn clickable" info-panel="r1-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0.09; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  <!--ROOM1 - RIGHT2-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-12.070 1.715 -4.082" rotation="0 90 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-r2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+  </a-box>
+  <!--ROOM1 - RIGHT3-->
+  <a-box class="frame" material="src: #cloth; color: #211b12; metalness: 1.000" position="-8.491 1.715 -4.082" rotation="0 90 0"
+         depth="1.570" height="1.990" width="0.030">
+    <a-image load-art="r1-r3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+    <a-entity class="panel-btn clickable" info-panel="r1-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
   </a-box>
 
   <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0"

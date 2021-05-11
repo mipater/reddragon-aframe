@@ -21,7 +21,9 @@ export class InfoPanel {
             return;
           }
           this.art = this.arts.find(art => art.position === this.data);
-          this.createInfoPanel();
+          if (this.art) {
+            this.createInfoPanel();
+          }
         }
       },
 

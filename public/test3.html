@@ -5,14 +5,13 @@
   <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-simple-sun-sky@^1.2.2/simple-sun-sky.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
-  <script src="https://unpkg.com/browse/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
-  <!--"The King´s Hall" (https://skfb.ly/6ttLZ) by Skokloster Castle (Skoklosters slott) is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
   </head>
   <body>
     <script src="components/log.js"></script>
-    <a-scene stats renderer="precision:medium">
+    <a-scene>
       <a-assets>
-        <a-asset-item id="veivoli-gltf" src="assets/objects/the_king_s_hall/scene.gltf"></a-asset-item>
+        <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
+        <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
       </a-assets>
       
 
@@ -32,7 +31,7 @@
         <a-entity light="type:  ambient;  color:  #BBB;  intensity:  0.42"></a-entity>
         <a-entity light="intensity:  0.5" position="-0.5 1 1"></a-entity>
 
-        <a-entity id="veivoli" gltf-model="#veivoli-gltf"></a-entity>
+        <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0" obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
         
 
        

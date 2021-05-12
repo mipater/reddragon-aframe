@@ -1,8 +1,7 @@
 <a-scene stats debug data-manager oading-screen="dotsColor: red; backgroundColor: black">
   <a-assets>
-    <a-asset-item id="museo-obj" src="assets/objects/museo/museo.obj"></a-asset-item>
-    <a-asset-item id="museo-mtl" src="assets/objects/museo/museo.mtl"></a-asset-item>
-    <a-asset-item id="museo-gltf" src="assets/objects/museo/museo.gltf"></a-asset-item>
+    <a-asset-item id="museo-obj" src="assets/objects/museo/museoLight2.obj"></a-asset-item>
+    <a-asset-item id="museo-mtl" src="assets/objects/museo/museoLight2.mtl"></a-asset-item>
   </a-assets>
 
   <a-entity position="-14.907 0 2" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" checkpoint-controls="mode: animate">
@@ -110,8 +109,7 @@
     <a-entity class="panel-btn clickable" info-panel="r1-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
   </a-box>
 
-  <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0"
-            obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
+  <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0" obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
 
 <!--  <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0"
             gltf-model="#museo-gltf" scale="1 1 1"></a-entity>-->

@@ -33,9 +33,11 @@ export class InfoPanel {
       },
 
       createInfoPanel: function() {
-        const sceneEl = document.querySelector('a-scene');
-        const artDescription = this.art.description;
+        var artDescription = this.art.description;
         let entityEl = document.createElement('a-entity');
+
+        createMultiPageDescription();
+        this.frame.appendChild(entityEl);
 
         entityEl.setAttribute('position', {x: -0.522, y: 0, z: -0.024});
         entityEl.setAttribute('geometry', {primitive: 'plane', width: 2.500, height: 1.800});
@@ -48,35 +50,28 @@ export class InfoPanel {
         <a-text id="description" position="0 -0.096 0" shader="msdf" wrapCount="60" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="white" value="`+ artDescription + `"></a-text>
         `;
 
-        /*
-        // calculate text length
-        // 19.2375 max totalWidth | 513 text length for 1 page
-        var description = document.querySelector('#description');
-        description.addEventListener('loaded', () => {
-          var data = description.components.text.data;
-          var totalWidth = data.value.length * (data.width / data.wrapCount);
-          console.log(totalWidth, data);
-        });*/
-
-        if (artDescription.length > 1312) {
-          // need to split into more pages
+        function createMultiPageDescription() {
           let textPages = [];
-          let splittedDesc = artDescription.split('.');
+          let pagesNumber = 1;
+          const splittedDesc = artDescription.split('.');
           let currentText = '';
           let currentTextLength = 0;
-          for (let i = 0; i < splittedDesc.length; i++) {
-            // select text to insert into pages
-            currentText += splittedDesc[i];
-            currentTextLength += splittedDesc[i].length;
-            if (currentTextLength > 1312 || (i+1 !== splittedDesc.length && currentTextLength + splittedDesc[i+1].length > 1312) || i == splittedDesc.length-1) {
-              textPages.push(currentText);
-              currentText = '';
-              currentTextLength = 0;
+          if (artDescription.length > 1312) {
+            // need to split into more pages
+            for (let i = 0; i < splittedDesc.length; i++) {
+              // select text to insert into pages
+              currentText += splittedDesc[i];
+              currentTextLength += splittedDesc[i].length;
+              if (currentTextLength > 1312 || (i+1 !== splittedDesc.length && currentTextLength + splittedDesc[i+1].length > 1312) || i == splittedDesc.length-1) {
+                textPages.push(currentText);
+                currentText = '';
+                currentTextLength = 0;
+              }
             }
+            pagesNumber = textPages.length;
+            console.log(textPages, textPages.length);
+
           }
-          console.log(textPages, textPages.length);
-        } else {
-          this.frame.appendChild(entityEl);
         }
 
         entityEl.addEventListener('loaded', () => {
@@ -89,7 +84,7 @@ export class InfoPanel {
             this.closePanel();
           });
         });
-      }
+      },
 
     });
   }

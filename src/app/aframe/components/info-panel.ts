@@ -35,20 +35,22 @@ export class InfoPanel {
       createInfoPanel: function() {
         var artDescription = this.art.description;
         let entityEl = document.createElement('a-entity');
-
-        createMultiPageDescription();
-        this.frame.appendChild(entityEl);
+        const isMultiPageDescription = createMultiPageDescription();
 
         entityEl.setAttribute('position', {x: -0.522, y: 0, z: -0.024});
         entityEl.setAttribute('geometry', {primitive: 'plane', width: 2.500, height: 1.800});
         entityEl.setAttribute('rotation', {x: 0, y: 270, z: 0});
         entityEl.setAttribute('material', {color: '#333333', shader: 'flat', transparent: false});
         entityEl.innerHTML = `
-        <a-plane class="clickable" id="panelCloseBtn-`+ this.data + `"  position="1.157 0.810 0.003" geometry="height: 0.140; width: 0.140" material="src: https://image.flaticon.com/icons/png/512/106/106830.png"></a-plane>
+        <a-plane class="clickable" id="panelCloseBtn-`+ this.data + `"  position="1.157 0.810 0.003" geometry="height: 0.140; width: 0.140" material="src: #closeBtn"></a-plane>
         <a-text id="title" position="0 0.613 0" shader="msdf" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#e6dfad" value="`+ this.art.title +`"></a-text>
         <a-text id="author" position="-0.223 0.539 0" shader="msdf" wrapCount="52" align="left" anchor="center" baseline="top" width="1" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#fedc01" value="`+ this.art.author +`"></a-text>
         <a-text id="description" position="0 -0.096 0" shader="msdf" wrapCount="60" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="white" value="`+ artDescription + `"></a-text>
+        <a-plane class="clickable" id="panelNextBtn" position="1.157 0 0.003" geometry="height: 0.140; width: 0.140" material="src: #arrow"></a-plane>
+        <a-plane class="clickable" id="panelPreviousBtn" visible="false" rotation="0 0 180" position="-1.157 0 0.003" geometry="height: 0.140; width: 0.140" material="src: #arrow"></a-plane>
         `;
+
+        this.frame.appendChild(entityEl);
 
         function createMultiPageDescription() {
           let textPages = [];
@@ -69,13 +71,20 @@ export class InfoPanel {
               }
             }
             pagesNumber = textPages.length;
-            console.log(textPages, textPages.length);
-
+            console.log(textPages, pagesNumber);
+            return true;
           }
+          return false;
         }
 
         entityEl.addEventListener('loaded', () => {
           var description = document.querySelector('#description');
+          var prevBtn = document.querySelector('#panelPreviousBtn');
+          var nextBtn = document.querySelector('#panelNextBtn');
+
+          if (!isMultiPageDescription) {
+            nextBtn.setAttribute("visible",false);
+          }
           description.setAttribute('text', {'wrapCount': 60.000});
 
           this.infoPanelEl = entityEl;

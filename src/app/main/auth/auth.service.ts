@@ -1,7 +1,7 @@
 // @ts-nocheck
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
+import {catchError, tap, concatMap} from 'rxjs/operators';
 import {BehaviorSubject, throwError} from 'rxjs';
 import {User} from './user.model';
 import {Router} from '@angular/router';
@@ -16,10 +16,21 @@ export interface AuthResponseData {
   registered?: string;
 }
 
+interface AuthRefreshTokenResponseData {
+  accessToken: string;
+  expiresIn: boolean;
+  tokenType: string;
+  refreshToken: string;
+  idToken: string;
+  userId: string;
+  projectId: string;
+}
+
 @Injectable({providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
+  private refreshToken: string;
 
   constructor(
     private http: HttpClient,
@@ -49,6 +60,7 @@ export class AuthService {
         returnSecureToken: true
       }
     ).pipe(
+      concatMap( resData => this.http.post<AuthRefreshTokenResponseData>('https://securetoken.googleapis.com/v1/token?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE&grant_type=refresh_token&refresh_token='+resData.refreshToken)),
       catchError(this.handleError),
       tap(resData => {
         this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
@@ -94,7 +106,9 @@ export class AuthService {
 
   autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
-      this.logout();
+      if (this.router.url.indexOf('/aframe') < 0) {
+        this.logout();
+      }
     }, expirationDuration);
   }
 

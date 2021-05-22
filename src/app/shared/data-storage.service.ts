@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { GalleryService } from '../main/gallery/gallery.service';
 import { Art } from './art.model';
-import {catchError, map, retry, tap} from 'rxjs/operators';
+import {retry} from 'rxjs/operators';
 import { Constants } from './constants.model';
-import {of, throwError} from "rxjs";
 
 interface ArtData {
   _id: string;

@@ -29,3 +29,5 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - https://startbootstrap.com/previews/freelancer
 - https://gist.github.com/gordonbrander/2230317
 - https://www.kaggle.com/ikarus777/best-artworks-of-all-time
+- https://firebase.google.com/docs/reference/rest/auth/#section-refresh-token
+- https://developers.google.com/identity/toolkit/reference/securetoken/rest/v1/token

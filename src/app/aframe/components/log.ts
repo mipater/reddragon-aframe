@@ -5,10 +5,12 @@ import {Injectable} from '@angular/core';
 @Injectable({providedIn: 'root'})
 export class Log {
   init(): void {
-    AFRAME.registerComponent('log', {
-      init: function() {
-        // console.log(this.el);
-      },
-    });
+    if ('undefined' === typeof AFRAME.components['log']) {
+      AFRAME.registerComponent('log', {
+        init: function () {
+          // console.log(this.el);
+        },
+      });
+    }
   }
 }

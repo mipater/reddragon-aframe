@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {AframeService} from './aframe.service';
 import {Art} from '../shared/art.model';
 import {ActivatedRoute} from '@angular/router';
@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./aframe.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AframeComponent implements OnInit {
+export class AframeComponent implements OnInit, OnDestroy {
   error = false;
 
   constructor(private aframeService: AframeService, private route: ActivatedRoute) { }
@@ -24,6 +24,10 @@ export class AframeComponent implements OnInit {
 
     this.aframeService.registerSystems(['data-manager']);
     this.aframeService.registerComponents(['log', 'info-panel', 'load-art']);
+  }
+
+  ngOnDestroy(): void {
+    document.querySelector('html').classList.remove('a-fullscreen');
   }
 
 }

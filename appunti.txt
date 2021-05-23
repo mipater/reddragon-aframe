@@ -31,3 +31,4 @@ https://stackoverflow.com/questions/45084943/aframe-vr-curved-plane-and-text
 - https://www.kaggle.com/ikarus777/best-artworks-of-all-time
 - https://firebase.google.com/docs/reference/rest/auth/#section-refresh-token
 - https://developers.google.com/identity/toolkit/reference/securetoken/rest/v1/token
+- https://stackoverflow.com/questions/38233687/how-to-use-the-firebase-refreshtoken-to-reauthenticate

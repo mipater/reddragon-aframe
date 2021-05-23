@@ -32,15 +32,17 @@ export class AframeService {
   }
 
   private dataManager(arts: Art[]): void {
-    AFRAME.registerSystem('data-manager', {
-      init(): void {
-        this.arts = arts;
-      },
+    if ('undefined' === typeof AFRAME.systems['data-manager']) {
+      AFRAME.registerSystem('data-manager', {
+        init(): void {
+          this.arts = arts;
+        },
 
-      getArts(): Art[] {
-        return this.arts;
-      }
-    });
+        getArts(): Art[] {
+          return this.arts;
+        }
+      });
+    }
   }
 
 }

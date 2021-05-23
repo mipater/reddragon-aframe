@@ -26,6 +26,13 @@ interface AuthRefreshTokenResponseData {
   projectId: string;
 }
 
+interface UserData {
+  email: string;
+  id: string;
+  _token: string;
+  _tokenExpirationDate: string;
+}
+
 @Injectable({providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User>(null);
@@ -47,6 +54,7 @@ export class AuthService {
     ).pipe(
       catchError(this.handleError),
       tap(resData => {
+        this.refreshToken = resData.refreshToken;
         this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
       })
     );
@@ -60,21 +68,17 @@ export class AuthService {
         returnSecureToken: true
       }
     ).pipe(
-      concatMap( resData => this.http.post<AuthRefreshTokenResponseData>('https://securetoken.googleapis.com/v1/token?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE&grant_type=refresh_token&refresh_token='+resData.refreshToken)),
       catchError(this.handleError),
       tap(resData => {
+        console.log(resData)
+        this.refreshToken = resData.refreshToken;
         this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
-      })
+      }),
     );
   }
 
   autoLogin() {
-    const userData: {
-      email: string,
-      id: string,
-      _token: string,
-      _tokenExpirationDate: string
-    } = JSON.parse(localStorage.getItem('userData'));
+    const userData: UserData = this.getUserData();
 
     if (!userData) {
       return;
@@ -106,10 +110,27 @@ export class AuthService {
 
   autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
-      if (this.router.url.indexOf('/aframe') < 0) {
-        this.logout();
-      }
-    }, expirationDuration);
+      this.http.post<AuthRefreshTokenResponseData>('https://securetoken.googleapis.com/v1/token?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE&grant_type=refresh_token&refresh_token='+this.refreshToken)
+        .pipe(
+          tap(resData => {
+            this.refreshToken = resData.refreshToken;
+            const oldUser: UserData = this.getUserData();
+            const newUser = new User(
+              oldUser.email,
+              oldUser.userId,
+              resData.idToken,
+              new Date(resData.expirationDate)
+            );
+            localStorage.setItem('userData', JSON.stringify(newUser));
+            this.user.next(newUser);
+            if (this.router.url.indexOf('/aframe') < 0 || this.router.url.indexOf('/gallery') < 0) {
+              this.logout();
+            } else {
+              clearTimeout(this.tokenExpirationTimer);
+            }
+          })
+        )
+    }, expirationDuration-60);
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
@@ -146,6 +167,10 @@ export class AuthService {
         break;
     }
     return throwError(errorMessage);
+  }
+
+  private getUserData(): UserData {
+    return JSON.parse(localStorage.getItem('userData'));
   }
 
 }

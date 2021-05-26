@@ -17,6 +17,7 @@ import {AuthInterceptorService} from './main/auth/auth-interceptor.service';
 import {AuthGuard} from './main/auth/auth.guard';
 import { AddArtComponent } from './main/gallery/add-art/add-art.component';
 import { ArtsResolverService } from './main/gallery/arts-resolver.service';
+import { LoadingSpinnerComponent } from './main/loading-spinner/loading-spinner.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent, children:[
@@ -39,7 +40,8 @@ const routes: Routes = [
     GalleryComponent,
     AuthComponent,
     ArtEditComponent,
-    AddArtComponent
+    AddArtComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

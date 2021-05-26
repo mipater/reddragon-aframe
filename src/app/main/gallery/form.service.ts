@@ -6,6 +6,8 @@ import {DataStorageService} from '../../shared/data-storage.service';
 import {Art} from '../../shared/art.model';
 import {Constants} from '../../shared/constants.model';
 import {GalleryService} from './gallery.service';
+import {Observable} from "rxjs";
+import {ResponseMessage} from "../../shared/response-message.interface";
 
 @Injectable({providedIn: 'root'})
 export class FormService {
@@ -75,7 +77,7 @@ export class FormService {
       });
   }
 
-  updateArt(modifiedArt, image: File = null): void {
+  updateArt(modifiedArt, image: File = null): ResponseMessage {
     console.log(image);
     const newArt: Art = new Art(
       this.artToEdit.id,
@@ -92,12 +94,18 @@ export class FormService {
         .subscribe(() => {
           this.dataStorageService.uploadImage(image).subscribe(() => {
             this.galleryService.modifyArt(this.artToEdit, newArt);
-            this.dataStorageService.storeArts();
+            this.dataStorageService.storeArts().subscribe(
+              () => {return {message: 'Success!', isError: false}},
+              error => {return {message: error.message, isError: true}}
+            );
           });
         });
     } else {
       this.galleryService.modifyArt(this.artToEdit, newArt);
-      this.dataStorageService.storeArts();
+      this.dataStorageService.storeArts().subscribe(
+        () => {return {message: 'Success!', isError: false}},
+        error => {return {message: error.message, isError: true}}
+      );
     }
   }
 

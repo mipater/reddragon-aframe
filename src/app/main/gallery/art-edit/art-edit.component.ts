@@ -4,6 +4,8 @@ import {DataStorageService} from '../../../shared/data-storage.service';
 import {GalleryService} from '../gallery.service';
 import {FormGroup} from '@angular/forms';
 import {FormService} from '../form.service';
+import {ResponseMessage} from "../../../shared/response-message.interface";
+import {getExtension, isImage} from "../../../shared/utils";
 
 @Component({
   selector: 'app-art-edit',
@@ -12,7 +14,8 @@ import {FormService} from '../form.service';
 })
 export class ArtEditComponent implements OnInit {
   editArtForm: FormGroup;
-  image: File;
+  file: File;
+  responseMessage: ResponseMessage = {};
 
   constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService, private formService: FormService) { }
 
@@ -22,13 +25,19 @@ export class ArtEditComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.editArtForm.value;
+
     if (this.editArtForm.dirty && this.editArtForm.valid) {
-      this.formService.updateArt(formValue, this.image);
+      if (this.file && !isImage(this.file.name)){
+        this.responseMessage = {message: `Filetype ${getExtension(this.file.name)} is not supported`, isError: true};
+        return;
+      }
+      this.responseMessage = this.formService.updateArt(formValue, this.file);
+      console.log(this.responseMessage)
     }
   }
 
   onFileChange(event) {
-    this.image = <File> event.target.files[0];
+    this.file = <File> event.target.files[0];
   }
 
 }

@@ -24,11 +24,10 @@ export class DataStorageService {
 
   storeArts() {
     const arts = this.galleryService.getArts();
-    this.http.put<Art[]>(
+    return this.http.put<Art[]>(
       Constants.FB_DBRT_PATH,
       arts
-    )
-    .subscribe();
+    );
   }
 
   fetchArts() {

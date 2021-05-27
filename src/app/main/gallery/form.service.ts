@@ -6,7 +6,7 @@ import {DataStorageService} from '../../shared/data-storage.service';
 import {Art} from '../../shared/art.model';
 import {Constants} from '../../shared/constants.model';
 import {GalleryService} from './gallery.service';
-import {Observable} from "rxjs";
+import {Subject} from "rxjs";
 import {ResponseMessage} from "../../shared/response-message.interface";
 
 @Injectable({providedIn: 'root'})
@@ -14,6 +14,7 @@ export class FormService {
   addArtForm: FormGroup;
   editArtForm: FormGroup;
   artToEdit: Art;
+  responseMessage = new Subject<ResponseMessage>();
 
   constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService) {
     this.addArtForm = new FormGroup({
@@ -77,7 +78,7 @@ export class FormService {
       });
   }
 
-  updateArt(modifiedArt, image: File = null): ResponseMessage {
+  updateArt(modifiedArt, image: File = null): void {
     console.log(image);
     const newArt: Art = new Art(
       this.artToEdit.id,
@@ -95,16 +96,19 @@ export class FormService {
           this.dataStorageService.uploadImage(image).subscribe(() => {
             this.galleryService.modifyArt(this.artToEdit, newArt);
             this.dataStorageService.storeArts().subscribe(
-              () => {return {message: 'Success!', isError: false}},
-              error => {return {message: error.message, isError: true}}
+              data => this.responseMessage.next({message: 'Success!', isError: false}),
+              error => this.responseMessage.next({message: error.message, isError: true})
             );
           });
-        });
+        },
+          error => {
+            console.log(error);this.responseMessage.next({message: error.error.error.message, isError: true})}
+        );
     } else {
       this.galleryService.modifyArt(this.artToEdit, newArt);
       this.dataStorageService.storeArts().subscribe(
-        () => {return {message: 'Success!', isError: false}},
-        error => {return {message: error.message, isError: true}}
+        data => this.responseMessage.next({message: 'Success!', isError: false}),
+        error => this.responseMessage.next({message: error.message, isError: true})
       );
     }
   }

@@ -1,26 +1,35 @@
 // @ts-nocheck
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataStorageService} from '../../../shared/data-storage.service';
 import {GalleryService} from '../gallery.service';
 import {FormGroup} from '@angular/forms';
 import {FormService} from '../form.service';
 import {ResponseMessage} from "../../../shared/response-message.interface";
 import {getExtension, isImage} from "../../../shared/utils";
+import {Subscription} from "rxjs";
+import {Art} from "../../../shared/art.model";
 
 @Component({
   selector: 'app-art-edit',
   templateUrl: './art-edit.component.html',
   styleUrls: ['./art-edit.component.css']
 })
-export class ArtEditComponent implements OnInit {
+export class ArtEditComponent implements OnInit, OnDestroy {
   editArtForm: FormGroup;
   file: File;
-  responseMessage: ResponseMessage = {};
+  responseMessage: ResponseMessage;
+  responseMessageSub: Subscription;
 
-  constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService, private formService: FormService) { }
+  constructor(private galleryService: GalleryService, private formService: FormService) { }
 
   ngOnInit(): void {
     this.editArtForm = this.formService.editArtForm;
+    this.responseMessageSub = this.formService.responseMessage
+      .subscribe(
+        (resMessage: ResponseMessage) => {
+          this.responseMessage = resMessage;
+        }
+      );
   }
 
   onSubmit() {
@@ -38,6 +47,10 @@ export class ArtEditComponent implements OnInit {
 
   onFileChange(event) {
     this.file = <File> event.target.files[0];
+  }
+
+  ngOnDestroy() {
+    this.responseMessageSub.unsubscribe();
   }
 
 }

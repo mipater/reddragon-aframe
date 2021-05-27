@@ -62,7 +62,7 @@
         <div id="authorHelp" class="form-text">Name of the author.</div>
       </div>
 
-      <div *ngIf="responseMessage" class="alert alert-success" role="alert">{{responseMessage.message}}</div>
+      <div *ngIf="responseMessage" [class]="responseMessage.isError ? 'alert alert-danger' : 'alert alert-success'" role="alert">{{responseMessage.message}}</div>
       <button [disabled]="!editArtForm.valid" class="btn btn-primary" type="submit">Save Changes</button>
 
     </form>

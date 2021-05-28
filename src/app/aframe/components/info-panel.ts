@@ -89,7 +89,7 @@ export class InfoPanel {
           entityEl.setAttribute('rotation', {x: 0, y: 270, z: 0});
           entityEl.setAttribute('material', {color: '#333333', shader: 'flat', transparent: false});
           entityEl.innerHTML = `
-        <a-plane class="clickable" id="panelCloseBtn-` + this.data + `"  position="1.157 0.810 0.003" geometry="height: 0.140; width: 0.140" material="src: #closeBtn"></a-plane>
+        <a-plane class="clickable" id="panelCloseBtn-` + this.data + `"  position="0 -0.810 0.003" geometry="height: 0.100; width: 0.300"><a-text position="-0.095 0 0.001" width="1.2" color="#333333" value="CHIUDI" ><a-text></a-plane>
         <a-text id="title` + this.id + `" position="0 0.613 0" shader="msdf" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#e6dfad" value="` + this.art.title + `"></a-text>
         <a-text id="author` + this.id + `" position="-0.223 0.539 0" shader="msdf" wrapCount="52" align="left" anchor="center" baseline="top" width="1" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="#fedc01" value="` + this.art.author + `"></a-text>
         <a-text id="description` + this.id + `" position="0 -0.096 0" shader="msdf" wrapCount="60" anchor="center" width="1.5" font="https://cdn.aframe.io/examples/ui/Viga-Regular.json" color="white" value="` + artDescription + `"></a-text>

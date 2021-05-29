@@ -73,7 +73,7 @@ export class FormService {
           formValue.author
         );
         this.galleryService.addArt(newArt);
-        this.dataStorageService.storeArts();
+        this.dataStorageService.storeArts().subscribe(() => this.successCallback(newArt), error => this.failureCallback(error));
         console.log('Art Added');
       });
   }
@@ -95,10 +95,7 @@ export class FormService {
         .subscribe(() => {
           this.dataStorageService.uploadImage(image).subscribe(() => {
             this.galleryService.modifyArt(this.artToEdit, newArt);
-            this.dataStorageService.storeArts().subscribe(
-              data => this.responseMessage.next({message: 'Success!', isError: false}),
-              error => this.responseMessage.next({message: error.message, isError: true})
-            );
+            this.dataStorageService.storeArts().subscribe(() => this.successCallback(newArt), error => this.failureCallback(error));
           });
         },
           error => {
@@ -106,11 +103,16 @@ export class FormService {
         );
     } else {
       this.galleryService.modifyArt(this.artToEdit, newArt);
-      this.dataStorageService.storeArts().subscribe(
-        data => this.responseMessage.next({message: 'Success!', isError: false}),
-        error => this.responseMessage.next({message: error.message, isError: true})
-      );
+      this.dataStorageService.storeArts().subscribe(() => this.successCallback(newArt), error => this.failureCallback(error));
     }
   }
 
+  successCallback(newArt) {
+    this.responseMessage.next({message: 'Success!', isError: false});
+    this.setEditFormValues(newArt);
+  }
+
+  failureCallback(error) {
+    this.responseMessage.next({message: error.message, isError: true})
+  }
 }

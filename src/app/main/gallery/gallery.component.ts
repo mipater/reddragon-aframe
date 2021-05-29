@@ -14,10 +14,15 @@ import {FormService} from './form.service';
 })
 export class GalleryComponent implements OnInit, OnDestroy {
   arts: Art[];
+  room1_arts: Art[];
+  room2_arts: Art[];
+  room3_arts: Art[];
+  room = 'room1'
+  prevRoomSelected = '';
   art: Art;
   artIndex: number;
   artsChanged: Subscription;
-  isLoading = true;
+  isLoading = false;
   error = false;
 
   constructor(private galleryService: GalleryService,
@@ -26,11 +31,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     const resolvedData: Art[] | string = this.route.snapshot.data.arts;
     if (Array.isArray(resolvedData)) {
       this.arts = resolvedData;
+      this.isLoading = false;
+      this.filterArtsByRoom();
     } else {
       this.error = true;
+      this.isLoading = false;
     }
 
     this.artsChanged = this.galleryService.artsChanged
@@ -39,6 +48,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
           this.arts = arts;
           this.isLoading = false;
           this.error = false;
+          this.filterArtsByRoom();
         }
       );
     this.isLoading = false;
@@ -75,5 +85,42 @@ export class GalleryComponent implements OnInit, OnDestroy {
   onEditArt(art: Art) {
     this.art = art;
     this.formService.setEditFormValues(art);
+  }
+
+  filterArtsByRoom(): void {
+    if (this.arts.length === 0) {
+      return;
+    }
+
+    this.room1_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r1') > -1);
+    this.room2_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r2') > -1);
+    this.room3_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r3') > -1);
+    console.log(this.room1_arts)
+    if (this.room === 'room1') {
+      this.arts = this.room1_arts;
+    } else if (this.room === 'room2') {
+      this.arts = this.room2_arts;
+    } else if (this.room === 'room3') {
+      this.arts = this.room3_arts;
+    }
+  }
+
+  onRoomSelect(event) {
+    let changed = this.prevRoomSelected !== event.target.id;
+    console.log(changed)
+    if (changed) {
+      if (event.target.id.toLowerCase().indexOf('room1') > -1) {
+        this.arts = this.room1_arts;
+        this.room = 'room1';
+      } else if (event.target.id.toLowerCase().indexOf('room2') > -1) {
+        this.arts = this.room2_arts;
+        this.room = 'room2';
+      } else if (event.target.id.toLowerCase().indexOf('room3') > -1) {
+        this.arts = this.room3_arts;
+        this.room = 'room3';
+      }
+    }
+    this.prevRoomSelected = event.target.id;
+    console.log(this.room)
   }
 }

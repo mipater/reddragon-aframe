@@ -1,4 +1,7 @@
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="editArtOffcanvas" aria-labelledby="editArtOffcanvasLabel">
+  <div *ngIf="isLoading" class="loading-spinner-cnt">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Edit Art</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -54,6 +57,15 @@
             <option value="r2-r2">Right 2</option>
             <option value="r2-r3">Right 3</option>
           </optgroup>
+          <optgroup label="ROOM 3">
+            <option value="r3-l1">Left 1</option>
+            <option value="r3-l2">Left 2</option>
+            <option value="r3-l3">Left 3</option>
+            <option value="r3-f">Front</option>
+            <option value="r3-r1">Right 1</option>
+            <option value="r3-r2">Right 2</option>
+            <option value="r3-r3">Right 3</option>
+          </optgroup>
         </select>
       </div>
       <div class="mb-3">
@@ -68,3 +80,5 @@
     </form>
   </div>
 </div>
+
+

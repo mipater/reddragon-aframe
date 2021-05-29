@@ -19,6 +19,7 @@ export class ArtEditComponent implements OnInit, OnDestroy {
   file: File;
   responseMessage: ResponseMessage;
   responseMessageSub: Subscription;
+  isLoading = false;
 
   constructor(private galleryService: GalleryService, private formService: FormService) { }
 
@@ -27,21 +28,27 @@ export class ArtEditComponent implements OnInit, OnDestroy {
     this.responseMessageSub = this.formService.responseMessage
       .subscribe(
         (resMessage: ResponseMessage) => {
+          this.isLoading = false;
           this.responseMessage = resMessage;
+          setTimeout(() => {
+            this.responseMessage = null;
+          }, 2000)
         }
       );
   }
 
   onSubmit() {
+    this.isLoading = true;
     const formValue = this.editArtForm.value;
 
     if (this.editArtForm.dirty && this.editArtForm.valid) {
-      if (this.file && !isImage(this.file.name)){
+      if (this.file && !isImage(this.file.name)) {
         this.responseMessage = {message: `Filetype ${getExtension(this.file.name)} is not supported`, isError: true};
+        this.isLoading = false;
         return;
       }
-      this.responseMessage = this.formService.updateArt(formValue, this.file);
-      console.log(this.responseMessage)
+      this.formService.updateArt(formValue, this.file);
+      this.isLoading = false;
     }
   }
 

@@ -78,10 +78,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
     }
   }
 
-  isGalleryReady(): boolean {
-    return !this.isLoading && !this.error && this.arts.length > 0;
-  }
-
   onEditArt(art: Art) {
     this.art = art;
     this.formService.setEditFormValues(art);
@@ -95,7 +91,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.room1_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r1') > -1);
     this.room2_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r2') > -1);
     this.room3_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r3') > -1);
-    console.log(this.room1_arts)
+
     if (this.room === 'room1') {
       this.arts = this.room1_arts;
     } else if (this.room === 'room2') {
@@ -107,7 +103,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   onRoomSelect(event) {
     let changed = this.prevRoomSelected !== event.target.id;
-    console.log(changed)
+
     if (changed) {
       if (event.target.id.toLowerCase().indexOf('room1') > -1) {
         this.arts = this.room1_arts;
@@ -121,6 +117,5 @@ export class GalleryComponent implements OnInit, OnDestroy {
       }
     }
     this.prevRoomSelected = event.target.id;
-    console.log(this.room)
   }
 }

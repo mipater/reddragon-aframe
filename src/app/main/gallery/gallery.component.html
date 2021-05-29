@@ -1,4 +1,4 @@
-<div class="album pt-4" style="background-color: #2c3d50 !important;margin-bottom: 0px !important;">
+<div class="album pt-4 noselect" style="background-color: #2c3d50 !important;margin-bottom: 0px !important;">
   <h1 class="text-center pb-3" style="color: floralwhite;">GALLERY</h1>
   <div class="pt-3 pb-2" style="background-color: #1a252f !important; margin-bottom: 0px !important;"><nav style="display: flex;flex-wrap: nowrap;align-content: center;justify-content: center;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -12,7 +12,7 @@
 <div *ngIf="isLoading" class="loading-spinner-cnt">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="tab-content" id="nav-tabContent">
+<div class="tab-content noselect" id="nav-tabContent">
   <div  id="{{room}}" role="tabpanel" aria-labelledby="{{room}}-tab" class="album pt-1 pb-5 bg-light tab-pane fade active show" style="background-color: #1a252f !important;" >
     <div class="container">
       <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 g-3">

@@ -48,6 +48,10 @@
   background-color: whitesmoke;
 }
 
+.offcanvas-header .btn-close {
+  transition: opacity.15s ease-in-out;
+}
+
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff !important;
   background-color: #2f3137 !important;;
@@ -72,3 +76,37 @@
   z-index: 9;
   background: #060d13cf;
 }
+
+.room-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #aa1717;
+}
+.room-btn:hover, .room-btn.selected  {
+  background-color: #d23132;
+  border: 1px solid white;
+}
+
+.accordion-button {
+  background-color: #2c3d50!important;
+  color: whitesmoke !important;
+  border: 1px solid #f5f5f5ba;
+}
+
+.accordion-button:focus {
+  border: 1px solid #f5f5f5ba;
+  box-shadow: 0 0 0 0.25rem rgb(30 40 51 / 29%);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  transform: rotate(
+    180deg
+  );
+  color: white;
+}
+
+.accordion-body {
+  background-color: #424f5f;
+}
+

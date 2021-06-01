@@ -3,21 +3,20 @@
     <a-asset-item id="museo-obj" src="assets/objects/museo/museoLight2.obj"></a-asset-item>
     <a-asset-item id="museo-mtl" src="assets/objects/museo/museoLight2.mtl"></a-asset-item>
     <img id="arrow" src="assets/img/arrow.png">
-    <img id="closeBtn" src="assets/img/closeBtn.png">
   </a-assets>
 
   <a-entity position="-14.907 0 2" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" checkpoint-controls="mode: animate">
-    <a-entity id="camera" camera position="0 1.5 0" look-controls="pointerLockEnabled: true">
+    <a-entity id="camera" camera position="0 1.80 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
-        raycaster="objects: .clickable;far:12;"
-        cursor="fuse:true;fuseTimeout:1000"
+        raycaster="objects: .clickable;far:2;"
+        cursor="fuse:true;fuseTimeout:800"
         geometry="primitive:circle; radius: 0.200"
         material="color:#ff0000;"
-        position="0 0 -1.5"
+        position="0 0 -1.4"
         animation__fusing="property:scale;
             from: 0.06 0.06 0.06;
-            dur:1000;
+            dur:800;
             to : 0.01 0.01 0.01;
             startEvents:fusing;"
         animation__pegi="property:scale;

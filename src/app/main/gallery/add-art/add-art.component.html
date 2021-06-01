@@ -37,32 +37,39 @@
         <label for="position" class="form-label">Position</label>
         <select id="position" class="form-select" aria-label=".form-select-sm example" formControlName="position">
           <option selected>Select the position</option>
+          <optgroup label="HALLWAY">
+            <option value="h-l1">HALLWAY - Left 1</option>
+            <option value="h-l2">HALLWAY - Left 2</option>
+            <option value="h-r1">HALLWAY - Right 1</option>
+            <option value="h-r2">HALLWAY - Right 2</option>
+            <option value="h-r3">HALLWAY - Right 3</option>
+          </optgroup>
           <optgroup label="ROOM 1">
-            <option value="r1-l1">Left 1</option>
-            <option value="r1-l2">Left 2</option>
-            <option value="r1-l3">Left 3</option>
-            <option value="r1-f">Front</option>
-            <option value="r1-r1">Right 1</option>
-            <option value="r1-r2">Right 2</option>
-            <option value="r1-r3">Right 3</option>
+            <option value="r1-l1">ROOM 1 - Left 1</option>
+            <option value="r1-l2">ROOM 1 - Left 2</option>
+            <option value="r1-l3">ROOM 1 - Left 3</option>
+            <option value="r1-f">ROOM 1 - Front</option>
+            <option value="r1-r1">ROOM 1 - Right 1</option>
+            <option value="r1-r2">ROOM 1 - Right 2</option>
+            <option value="r1-r3">ROOM 1 - Right 3</option>
           </optgroup>
           <optgroup label="ROOM 2">
-            <option value="r2-l1">Left 1</option>
-            <option value="r2-l2">Left 2</option>
-            <option value="r2-l3">Left 3</option>
-            <option value="r2-f">Front</option>
-            <option value="r2-r1">Right 1</option>
-            <option value="r2-r2">Right 2</option>
-            <option value="r2-r3">Right 3</option>
+            <option value="r2-l1">ROOM 2 - Left 1</option>
+            <option value="r2-l2">ROOM 2 - Left 2</option>
+            <option value="r2-l3">ROOM 2 - Left 3</option>
+            <option value="r2-f">ROOM 2 - Front</option>
+            <option value="r2-r1">ROOM 2 - Right 1</option>
+            <option value="r2-r2">ROOM 2 - Right 2</option>
+            <option value="r2-r3">ROOM 2 - Right 3</option>
           </optgroup>
           <optgroup label="ROOM 3">
-            <option value="r3-l1">Left 1</option>
-            <option value="r3-l2">Left 2</option>
-            <option value="r3-l3">Left 3</option>
-            <option value="r3-f">Front</option>
-            <option value="r3-r1">Right 1</option>
-            <option value="r3-r2">Right 2</option>
-            <option value="r3-r3">Right 3</option>
+            <option value="r3-l1">ROOM 3 - Left 1</option>
+            <option value="r3-l2">ROOM 3 - Left 2</option>
+            <option value="r3-l3">ROOM 3 - Left 3</option>
+            <option value="r3-f">ROOM 3 - Front</option>
+            <option value="r3-r1">ROOM 3 - Right 1</option>
+            <option value="r3-r2">ROOM 3 - Right 2</option>
+            <option value="r3-r3">ROOM 3 - Right 3</option>
           </optgroup>
         </select>
       </div>
@@ -71,7 +78,7 @@
         <input type="text" class="form-control" id="author" aria-describedby="authorHelp" formControlName="author">
         <div id="authorHelp" class="form-text">Name of the author.</div>
       </div>
-
+      <div *ngIf="responseMessage" [class]="responseMessage.isError ? 'alert alert-danger' : 'alert alert-success'" role="alert">{{responseMessage.message}}</div>
       <button [disabled]="!addArtForm.valid" class="btn btn-primary" type="submit">Submit</button>
 
     </form>

@@ -17,7 +17,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
   room1_arts: Art[];
   room2_arts: Art[];
   room3_arts: Art[];
-  room = 'room1'
+  hallway_arts: Art[];
+  room = 'hallway'
   prevRoomSelected = '';
   art: Art;
   artIndex: number;
@@ -88,6 +89,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.hallway_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('h') > -1);
     this.room1_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r1') > -1);
     this.room2_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r2') > -1);
     this.room3_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r3') > -1);
@@ -98,6 +100,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.arts = this.room2_arts;
     } else if (this.room === 'room3') {
       this.arts = this.room3_arts;
+    } else if (this.room === 'hallway') {
+      this.arts = this. hallway_arts;
     }
   }
 
@@ -114,6 +118,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
       } else if (event.target.id.toLowerCase().indexOf('room3') > -1) {
         this.arts = this.room3_arts;
         this.room = 'room3';
+      } else if (event.target.id.toLowerCase().indexOf('hallway') > -1) {
+        this.arts = this.hallway_arts;
+        this.room = 'hallway';
       }
     }
     this.prevRoomSelected = event.target.id;

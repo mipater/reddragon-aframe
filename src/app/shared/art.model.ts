@@ -28,4 +28,8 @@ export class Art {
   get author(): string {
     return this._author;
   }
+
+  set position(value: string) {
+    this._position = value;
+  }
 }

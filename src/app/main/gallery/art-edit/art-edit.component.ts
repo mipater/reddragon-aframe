@@ -1,7 +1,7 @@
 // @ts-nocheck
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataStorageService} from '../../../shared/data-storage.service';
-import {GalleryService} from '../gallery.service';
+import {GalleryService, Positions} from '../gallery.service';
 import {FormGroup} from '@angular/forms';
 import {FormService} from '../form.service';
 import {ResponseMessage} from "../../../shared/response-message.interface";
@@ -19,17 +19,30 @@ export class ArtEditComponent implements OnInit, OnDestroy {
   file: File;
   responseMessage: ResponseMessage;
   responseMessageSub: Subscription;
+  setFormValueSub: Subscription;
+  oldFormValue = {};
   isLoading = false;
+  positions: Positions[];
+  position_names: [] = [];
 
   constructor(private galleryService: GalleryService, private formService: FormService) { }
 
   ngOnInit(): void {
     this.editArtForm = this.formService.editArtForm;
+    this.setFormValueSub = this.formService.setFormValue.subscribe(value => this.oldFormValue = value)
+    this.updatePositions();
+    this.positions.forEach(position => {
+      let _pos = position.name.split('-')[0].trim();
+      if (!this.position_names.includes(_pos)) {
+        this.position_names.push(_pos);
+      }
+    });
     this.responseMessageSub = this.formService.responseMessage
       .subscribe(
         (resMessage: ResponseMessage) => {
           this.isLoading = false;
           this.responseMessage = resMessage;
+          this.updatePositions();
           setTimeout(() => {
             this.responseMessage = null;
           }, 2000)
@@ -58,6 +71,15 @@ export class ArtEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.responseMessageSub.unsubscribe();
+    this.setFormValueSub.unsubscribe();
   }
 
+  updatePositions() {
+    this.positions = this.galleryService.getPositions();
+  }
+
+  onResetValues() {
+    this.editArtForm.setValue(this.oldFormValue)
+    console.log(this.oldFormValue)
+  }
 }

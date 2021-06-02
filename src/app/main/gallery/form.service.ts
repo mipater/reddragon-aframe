@@ -15,6 +15,7 @@ export class FormService {
   editArtForm: FormGroup;
   artToEdit: Art;
   responseMessage = new Subject<ResponseMessage>();
+  setFormValue = new Subject<{}>();
 
   constructor(private dataStorageService: DataStorageService, private galleryService: GalleryService) {
     this.addArtForm = new FormGroup({
@@ -54,6 +55,17 @@ export class FormService {
       'position': art.position,
       'author': art.author
     })
+    this.setFormValue.next({
+      'title': art.title,
+      'description': art.description,
+      'image': null,
+      'dimensions': {
+        'width': art.dimensions.width,
+        'height': art.dimensions.height
+      },
+      'position': art.position,
+      'author': art.author
+    })
   }
 
   submitNewArt(formValue, image):void {
@@ -79,7 +91,13 @@ export class FormService {
   }
 
   updateArt(modifiedArt, image: File = null): void {
-    console.log(image);
+    let artToReplace: Art = this.galleryService.getArts().filter(art => art.position === modifiedArt.position)[0];
+    let needToReplace = false;
+    if (modifiedArt.position !== this.artToEdit.position && modifiedArt.position === artToReplace.position) {
+      artToReplace.position = this.artToEdit.position;
+      needToReplace = true;
+    }
+
     const newArt: Art = new Art(
       this.artToEdit.id,
       modifiedArt.position || this.artToEdit.position,
@@ -95,24 +113,51 @@ export class FormService {
         .subscribe(() => {
           this.dataStorageService.uploadImage(image).subscribe(() => {
             this.galleryService.modifyArt(this.artToEdit, newArt);
-            this.dataStorageService.storeArts().subscribe(() => this.successCallback(newArt), error => this.failureCallback(error));
+            this.dataStorageService.storeArts().subscribe(() => {
+              if (needToReplace) {
+                this.galleryService.modifyArt(artToReplace, artToReplace);
+                this.dataStorageService.storeArts().subscribe(() => this.successCallback(artToReplace, true), error => this.failureCallback(error))
+              } else {
+                this.successCallback(newArt)
+              }
+            }, error => this.failureCallback(error));
           });
         },
           error => {
-            console.log(error);this.responseMessage.next({message: error.error.error.message, isError: true})}
+            this.responseMessage.next({message: error.error.error.message, isError: true})}
         );
     } else {
       this.galleryService.modifyArt(this.artToEdit, newArt);
-      this.dataStorageService.storeArts().subscribe(() => this.successCallback(newArt), error => this.failureCallback(error));
+      this.dataStorageService.storeArts().subscribe(() => {
+        if (needToReplace) {
+          this.galleryService.modifyArt(artToReplace, artToReplace);
+          this.dataStorageService.storeArts().subscribe(() => this.successCallback(artToReplace, true), error => this.failureCallback(error))
+        } else {
+          this.successCallback(newArt)
+        }
+      }, error => this.failureCallback(error));
     }
   }
 
-  successCallback(newArt) {
+  successCallback(newArt, replaced) {
     this.responseMessage.next({message: 'Success!', isError: false});
-    this.setEditFormValues(newArt);
+    if (!replaced) {
+      this.setEditFormValues(newArt);
+    }
   }
 
   failureCallback(error) {
     this.responseMessage.next({message: error.message, isError: true})
+  }
+
+  storeArt(newArt, needToReplace, artToReplace) {
+    this.dataStorageService.storeArts().subscribe(() => {
+      if (needToReplace) {
+        this.galleryService.modifyArt(artToReplace, artToReplace);
+        this.dataStorageService.storeArts().subscribe(() => this.successCallback(artToReplace, true), error => this.failureCallback(error))
+      } else {
+        this.successCallback(newArt)
+      }
+    }, error => this.failureCallback(error));
   }
 }

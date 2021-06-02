@@ -1,7 +1,7 @@
 // @ts-nocheck
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Art} from '../../shared/art.model';
-import {GalleryService} from './gallery.service';
+import {GalleryService, Positions} from './gallery.service';
 import {Subscription} from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {DataStorageService} from '../../shared/data-storage.service';
@@ -18,7 +18,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
   room2_arts: Art[];
   room3_arts: Art[];
   hallway_arts: Art[];
-  room = 'hallway'
+  positions: Positions[];
+  position = '';
+  room = 'hallway';
   prevRoomSelected = '';
   art: Art;
   artIndex: number;
@@ -38,6 +40,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.arts = resolvedData;
       this.isLoading = false;
       this.filterArtsByRoom();
+      this.positions = this.galleryService.getPositions();
     } else {
       this.error = true;
       this.isLoading = false;
@@ -61,6 +64,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   onViewArt(art: Art) {
     this.art = art;
+    this.setPosition();
   }
 
   onDeleteArt(i: number) {
@@ -124,5 +128,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
       }
     }
     this.prevRoomSelected = event.target.id;
+  }
+
+  setPosition() {
+    this.position = this.positions.filter(position => position.id === this.art.position)[0].name;
   }
 }

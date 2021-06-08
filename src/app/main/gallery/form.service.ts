@@ -93,7 +93,7 @@ export class FormService {
   updateArt(modifiedArt, image: File = null): void {
     let artToReplace: Art = this.galleryService.getArts().filter(art => art.position === modifiedArt.position)[0];
     let needToReplace = false;
-    if (modifiedArt.position !== this.artToEdit.position && modifiedArt.position === artToReplace.position) {
+    if (modifiedArt.position !== this.artToEdit.position && 'undefined' !== typeof artToReplace && modifiedArt.position === artToReplace.position) {
       artToReplace.position = this.artToEdit.position;
       needToReplace = true;
     }

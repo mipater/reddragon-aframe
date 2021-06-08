@@ -2,14 +2,18 @@
   <a-assets>
     <a-asset-item id="museo-obj" src="assets/objects/museo/museoLight2.obj"></a-asset-item>
     <a-asset-item id="museo-mtl" src="assets/objects/museo/museoLight2.mtl"></a-asset-item>
+
+    <a-asset-item id="scene-gltf" src="assets/objects/cinema/scene.gltf"></a-asset-item>
+    <video muted id="videoRoom4" src="assets/videos/videoplayback.mp4"  autoplay loop="true"></video>
+
     <img id="arrow" src="assets/img/arrow.png">
   </a-assets>
 
   <a-entity position="-14.907 0 2" id="rig" movement-controls="controls: checkpoint, keyboard, gamepad, touch; constrainToNavMesh: true" checkpoint-controls="mode: animate">
-    <a-entity id="camera" camera position="0 1.80 0" look-controls="pointerLockEnabled: true">
+    <a-entity id="camera" camera position="0 1.60 0" look-controls="pointerLockEnabled: true">
       <a-entity
         scale="0.06 0.06 0.06"
-        raycaster="objects: .clickable;far:2.2;"
+        raycaster="objects: .clickable;far:4;"
         cursor="fuse:true;fuseTimeout:800"
         geometry="primitive:circle; radius: 0.200"
         material="color:#ff0000;"
@@ -52,10 +56,12 @@
 
   <!-- Checkpoints -->
   <a-entity id="general-checkpoints" position="-4.46079 0.61078 -0.05092">
-    <a-cylinder id="entrance-r1" checkpoint radius="0.3" height="0.1" position="-2.145 -0.553 4.801" color="#faeecc" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 -0.553 0.82638" color="#faeecc" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 -0.553 -9.27078" color="#faeecc" class="clickable"></a-cylinder>
-    <a-cylinder checkpoint radius="0.3" height="0.1" position="2.12299 --0.553 -19.65318" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder id="entrance-r1" checkpoint radius="0.2" height="0.1" position="-2.145 -0.553 4.801" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.2" height="0.1" position="1.735 -0.553 2.765" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.2" height="0.1" position="-2.302 -0.553 -5.413" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.2" height="0.1" position="-2.233 -0.553 -15.171" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.2" height="0.1" position="1.544 -0.553 -20.913" color="#faeecc" class="clickable"></a-cylinder>
+    <a-cylinder checkpoint radius="0.2" height="0.1" position="4.844 -0.553 -13.272" color="#faeecc" class="clickable"></a-cylinder>
   </a-entity>
 
   <!-- Room1 -->
@@ -65,49 +71,49 @@
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-f" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-f" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-f" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-f" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
     <!--ROOM1 - LEFT1-->
     <a-box id="r1-l1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 2.550" rotation="0 270 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-l1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-l1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-l1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-l1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
     <!--ROOM1 - LEFT2-->
     <a-box id="r1-l2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 2.550" rotation="0 270 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-l2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-l2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-l2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-l2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
     <!--ROOM1 - LEFT3-->
     <a-box id="r1-l3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 2.550" rotation="0 270 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-l3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-l3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-l3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-l3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
   <!--ROOM1 - RIGHT1-->
     <a-box id="r1-r1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 -6.663" rotation="0 90 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-r1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-r1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-r1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
     <!--ROOM1 - RIGHT2-->
     <a-box id="r1-r2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 -6.663" rotation="0 90 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-r2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-r2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-r2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
     <!--ROOM1 - RIGHT3-->
     <a-box id="r1-r3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 -6.663" rotation="0 90 0"
            depth="1.570" height="1.990" width="0.030">
       <a-image load-art="r1-r3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
       <a-entity class="panel-btn clickable" info-panel="r1-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-      <a-cylinder id="r1-r3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      <a-cylinder id="r1-r3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
   </a-entity>
 
@@ -120,49 +126,49 @@
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-f" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-f" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-f" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-f" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM2 - LEFT1-->
       <a-box id="r2-l1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 3.550" rotation="0 270 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-l1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-l1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-l1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-l1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM2 - LEFT2-->
       <a-box id="r2-l2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 3.550" rotation="0 270 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-l2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-l2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-l2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-l2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM2 - LEFT3-->
       <a-box id="r2-l3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 3.550" rotation="0 270 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-l3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-l3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-l3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-l3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
     <!--ROOM2 - RIGHT1-->
       <a-box id="r2-r1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 -6.663" rotation="0 90 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-r1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-r1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-r1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM2 - RIGHT2-->
       <a-box id="r2-r2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 -6.663" rotation="0 90 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-r2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-r2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-r2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM2 - RIGHT3-->
       <a-box id="r2-r3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 -6.663" rotation="0 90 0"
              depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r2-r3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r2-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r2-r3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r2-r3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
     </a-entity>
 
@@ -174,49 +180,96 @@
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-f" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-f" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-f" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-f" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM3 - LEFT1-->
       <a-box id="r3-l1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 3.550" rotation="0 270 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-l1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-l1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-l1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-l1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM3 - LEFT2-->
       <a-box id="r3-l2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 3.550" rotation="0 270 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-l2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-l2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-l2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-l2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM3 - LEFT3-->
       <a-box id="r3-l3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 3.550" rotation="0 270 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-l3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-l3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-l3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-l3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
     <!--ROOM3 - RIGHT1-->
       <a-box id="r3-r1" class="frame" material="color: #211b12; metalness: 1.000" position="-15.807 1.715 -7.100" rotation="0 90 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-r1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-r1" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-r1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM3 - RIGHT2-->
       <a-box id="r3-r2" class="frame" material="color: #211b12; metalness: 1.000" position="-12.070 1.715 -7.100" rotation="0 90 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-r2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-r2" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-r2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
       <!--ROOM3 - RIGHT3-->
       <a-box id="r3-r3" class="frame" material="color: #211b12; metalness: 1.000" position="-8.491 1.715 -7.100" rotation="0 90 0"
             depth="1.570" height="1.990" width="0.030">
         <a-image load-art="r3-r3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
         <a-entity class="panel-btn clickable" info-panel="r3-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
-        <a-cylinder id="r3-r3" checkpoint radius="0.3" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+        <a-cylinder id="r3-r3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      </a-box>
+    </a-entity>
+
+    <!-- Room4 - video room -->
+    <a-entity id="room4-cnt" position="12.490 2.110 -14.290" rotation="0 -90 0">
+      <a-entity id="cinema" src="assets/objects/cinema/scene.gltf" position="0 0 0" rotation="0 0 0" scale="1 1 1"></a-entity> 
+      <a-video src="#videoRoom4" width="4" height="3" position="0 0 0"></a-video>
+    </a-entity>
+
+
+     <!-- hallway -->
+     <a-entity id="hallway-cnt" position="-3.090 0 11.447" rotation="0 -90 0">
+      <!--HALLWAY - LEFT1-->
+      <a-box id="h-l1" class="frame" material="color: #211b12; metalness: 1.000" position="-12.000 1.715 3.550" rotation="0 270 0"
+            depth="1.570" height="1.990" width="0.030">
+        <a-image load-art="h-l1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+        <a-entity class="panel-btn clickable" info-panel="h-l1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+        <a-cylinder id="h-l1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      </a-box>
+      <!--HALLWAY - LEFT2-->
+      <a-box id="h-l2" class="frame" material="color: #211b12; metalness: 1.000" position="-21.128 1.715 3.550" rotation="0 270 0"
+            depth="1.570" height="1.990" width="0.030">
+        <a-image load-art="h-l2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+        <a-entity class="panel-btn clickable" info-panel="h-l2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+        <a-cylinder id="h-l2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      </a-box>
+
+    <!--HALLWAY - RIGHT1-->
+      <a-box id="h-r1" class="frame" material="color: #211b12; metalness: 1.000" position="-6.517 1.715 -3.190" rotation="0 90 0"
+            depth="1.570" height="1.990" width="0.030">
+        <a-image load-art="h-r1" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+        <a-entity class="panel-btn clickable" info-panel="h-r1" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+        <a-cylinder id="h-r1" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      </a-box>
+      <!--HALLWAY - RIGHT2-->
+      <a-box id="h-r2" class="frame" material="color: #211b12; metalness: 1.000" position="-13.560 1.715 -3.190" rotation="0 90 0"
+            depth="1.570" height="1.990" width="0.030">
+        <a-image load-art="h-r2" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+        <a-entity class="panel-btn clickable" info-panel="h-r2" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+        <a-cylinder id="h-r2" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
+      </a-box>
+      <!--HALLWAY - RIGHT3-->
+      <a-box id="h-r3" class="frame" material="color: #211b12; metalness: 1.000" position="-19.000 1.715 -3.190" rotation="0 90 0"
+            depth="1.570" height="1.990" width="0.030">
+        <a-image load-art="h-r3" height="0.800" width="0.860" position="-0.018 0 0" rotation="0 270 0"></a-image>
+        <a-entity class="panel-btn clickable" info-panel="h-r3" position="0.00723 -0.11196 0.9908" geometry="depth: 0; height: 0.07; width: 0.14" rotation="0 -90 0"></a-entity>
+        <a-cylinder id="h-r3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
       </a-box>
     </a-entity>
 

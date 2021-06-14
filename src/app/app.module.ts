@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AframeComponent } from './aframe/aframe.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './main/homepage/homepage.component';
 import { NavbarComponent } from './main/navbar/navbar.component';
@@ -12,43 +11,34 @@ import { FooterComponent } from './main/footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { GalleryComponent } from './main/gallery/gallery.component';
 import { AuthComponent } from './main/auth/auth.component';
-import { ArtEditComponent } from './main/gallery/art-edit/art-edit.component';
 import {AuthInterceptorService} from './main/auth/auth-interceptor.service';
-import {AuthGuard} from './main/auth/auth.guard';
-import { AddArtComponent } from './main/gallery/add-art/add-art.component';
-import { ArtsResolverService } from './main/gallery/arts-resolver.service';
-import { LoadingSpinnerComponent } from './main/loading-spinner/loading-spinner.component';
+import {SharedModule} from "./shared/shared.module";
 
 const routes: Routes = [
   {path: '', component: MainComponent, children:[
       {path: '', component: HomepageComponent},
-      {path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard], resolve: {arts: ArtsResolverService}},
+      {path: 'gallery', loadChildren: () => import('./main/gallery/gallery.module').then(m => m.GalleryModule)},
       {path: 'auth', component: AuthComponent},
     ]},
-  {path: 'aframe', component: AframeComponent, resolve: {arts: ArtsResolverService}},
+  {path: 'aframe', loadChildren: () => import('./aframe/aframe.module').then(m => m.AframeModule)},
   {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AframeComponent,
     HomepageComponent,
     NavbarComponent,
     FooterComponent,
     MainComponent,
-    GalleryComponent,
-    AuthComponent,
-    ArtEditComponent,
-    AddArtComponent,
-    LoadingSpinnerComponent
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    SharedModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent],

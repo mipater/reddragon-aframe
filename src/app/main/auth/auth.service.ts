@@ -43,23 +43,6 @@ export class AuthService {
     private http: HttpClient,
     private router: Router) {}
 
-  signup(email: string, password: string) {
-    return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE',
-      {
-        email,
-        password,
-        returnSecureToken: true
-      }
-    ).pipe(
-      catchError(this.handleError),
-      tap(resData => {
-        this.refreshToken = resData.refreshToken;
-        this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
-      })
-    );
-  }
-
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE',
       {

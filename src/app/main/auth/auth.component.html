@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row pt-5">
-    <div class="col-md-8 mx-auto">
+    <div class="auth col-md-8 mx-auto">
       <!--    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>-->
-      <h2 class="mb-5">{{ isLoginMode ? 'Login' : 'Sign Up' }}</h2>
+      <h2 class="mb-5">Sign In</h2>
       <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
         <div class="mb-3 row">
           <label for="email" class="col-sm-2 col-form-label"> E-Mail</label>
@@ -35,14 +35,13 @@
         </div>
         <div class="mt-5">
           <button id="loginBtn" class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
-            {{ isLoginMode ? 'Login' : 'Sign Up' }}
-          </button>
-          |
-          <button class="btn btn-secondary" type="button" (click)="onSwitchMode()">
-            {{ isLoginMode ? 'Switch to Sign Up' : 'Switch to Login' }}
+            Login
           </button>
         </div>
       </form>
     </div>
   </div>
+</div>
+<div *ngIf="isLoading" class="loading-spinner-cnt" style="top: 0;">
+  <app-loading-spinner></app-loading-spinner>
 </div>

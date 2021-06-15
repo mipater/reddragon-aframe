@@ -79,7 +79,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
         .deleteImage(artoToDelete.imgSrc)
         .subscribe();
       this.galleryService.setArts(this.arts);
-      this.dataStorageService.storeArts();
+      this.dataStorageService.storeArts().subscribe();
     }
   }
 

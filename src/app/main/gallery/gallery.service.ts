@@ -68,6 +68,11 @@ export class GalleryService {
   }
 
   checkAndSetPositions() {
+    if (this.arts.length === 0) {
+      this.positions.forEach(position => {
+        position.occupied = false;
+      })
+    }
     for (let i = 0; i < this.arts.length; i++) {
       for (let j = 0; j < this.positions.length; j++) {
         if (this.arts[i].position === this.positions[j].id) {

@@ -46,9 +46,6 @@ export class DataStorageService {
   deleteImage(name: string) {
     return this.http.delete<any>(
       name,
-    )
-    .pipe(
-      retry(1)
     );
   }
 

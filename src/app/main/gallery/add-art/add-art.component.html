@@ -42,6 +42,7 @@
               <option
                 *ngIf="position.name.indexOf(position_name) > -1"
                 value="{{position.id}}"
+                [disabled]="position.occupied ? true : false"
                 [style]="position.occupied ? 'color: #aa1717;font-weight: bolder;background-color: #d5b9be;' : 'background-color: rgb(189 213 185);color: rgb(5 137 33);font-weight: bolder;'"
               >{{position.occupied ? position.name + ' (occupied)' : position.name}}</option>
             </ng-container>

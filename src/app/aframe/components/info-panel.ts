@@ -122,13 +122,14 @@ export class InfoPanel {
           const splittedDesc = artDescription.split('.');
           let currentText = '';
           let currentTextLength = 0;
-          if (artDescription.length > 1312) {
+          const maxTextLen = 1000;
+          if (artDescription.length > maxTextLen) {
             // need to split into more pages
             for (let i = 0; i < splittedDesc.length; i++) {
               // select text to insert into pages
               currentText += splittedDesc[i];
               currentTextLength += splittedDesc[i].length;
-              if (currentTextLength > 1312 || (i + 1 !== splittedDesc.length && currentTextLength + splittedDesc[i + 1].length > 1312) || i == splittedDesc.length - 1) {
+              if (currentTextLength > maxTextLen || (i + 1 !== splittedDesc.length && currentTextLength + splittedDesc[i + 1].length > maxTextLen) || i == splittedDesc.length - 1) {
                 texts.push(currentText);
                 currentText = '';
                 currentTextLength = 0;

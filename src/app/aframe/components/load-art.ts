@@ -17,6 +17,7 @@ export class LoadArt {
 
           // get art dimensions
           this.art = this.arts.find(art => art.position === this.data);
+          var btn = document.querySelector('[info-panel=' + this.art.position + ']');
           if (this.art) {
             const dimensions = this.art.dimensions;
 
@@ -26,6 +27,8 @@ export class LoadArt {
             this.el.setAttribute('material', 'src: ' + this.art.imgSrc);
             this.el.setAttribute('width', dimensions.width);
             this.el.setAttribute('height', dimensions.height);
+
+            btn.setAttribute('position', {x: 0, y: 0, z: (dimensions.width/2) + 0.400})
           }
         },
       });

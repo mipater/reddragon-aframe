@@ -58,7 +58,7 @@
     "fsevents": "2.1.2"
   },
   "engines": {
-    "node": "15.14.0",
+    "node": "16.2.0",
     "npm": "7.9.0"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.",

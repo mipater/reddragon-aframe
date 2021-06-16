@@ -14,6 +14,7 @@ import {FormService} from './form.service';
 })
 export class GalleryComponent implements OnInit, OnDestroy {
   arts: Art[];
+  current_arts: Art[];
   room1_arts: Art[];
   room2_arts: Art[];
   room3_arts: Art[];
@@ -99,13 +100,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.room3_arts = this.arts.filter(art => art.position.toLowerCase().substring(0, 2).indexOf('r3') > -1);
 
     if (this.room === 'room1') {
-      this.arts = this.room1_arts;
+      this.current_arts = this.room1_arts;
     } else if (this.room === 'room2') {
-      this.arts = this.room2_arts;
+      this.current_arts = this.room2_arts;
     } else if (this.room === 'room3') {
-      this.arts = this.room3_arts;
+      this.current_arts = this.room3_arts;
     } else if (this.room === 'hallway') {
-      this.arts = this. hallway_arts;
+      this.current_arts = this. hallway_arts;
     }
   }
 
@@ -114,16 +115,16 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
     if (changed) {
       if (event.target.id.toLowerCase().indexOf('room1') > -1) {
-        this.arts = this.room1_arts;
+        this.current_arts = this.room1_arts;
         this.room = 'room1';
       } else if (event.target.id.toLowerCase().indexOf('room2') > -1) {
-        this.arts = this.room2_arts;
+        this.current_arts = this.room2_arts;
         this.room = 'room2';
       } else if (event.target.id.toLowerCase().indexOf('room3') > -1) {
-        this.arts = this.room3_arts;
+        this.current_arts = this.room3_arts;
         this.room = 'room3';
       } else if (event.target.id.toLowerCase().indexOf('hallway') > -1) {
-        this.arts = this.hallway_arts;
+        this.current_arts = this.hallway_arts;
         this.room = 'hallway';
       }
     }

@@ -1,12 +1,12 @@
-<a-scene stats debug data-manager oading-screen="dotsColor: red; backgroundColor: black">
+<a-scene stats debug data-manager loading-screen="dotsColor: red; backgroundColor: black" gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/">
   <a-assets>
     <a-asset-item id="museo-obj" src="assets/objects/museo/museoLight2.obj"></a-asset-item>
     <a-asset-item id="museo-mtl" src="assets/objects/museo/museoLight2.mtl"></a-asset-item>
 
     <a-asset-item id="chair-obj" src="assets/objects/chair/source/TOPOR.obj"></a-asset-item>
 
-    <a-asset-item id="sarcofagi-obj" src="assets/objects/sarcofagi/untitled.obj"></a-asset-item>
-    <a-asset-item id="sarcofagi-mtl" src="assets/objects/sarcofagi/untitled.mtl"></a-asset-item>
+<!--    <a-asset-item id="sarcofagi-obj" src="assets/objects/sarcofagi/untitled.obj"></a-asset-item>-->
+<!--    <a-asset-item id="sarcofagi-mtl" src="assets/objects/sarcofagi/untitled.mtl"></a-asset-item>-->
 
     <video muted id="videoRoom4" src="assets/videos/videoplayback.mp4"  autoplay loop="true"></video>
 
@@ -125,8 +125,6 @@
       <a-cylinder id="r1-r3" checkpoint radius="0.2" height="0.1" position="-1.781 -1.647 0" color="#faeecc" class="clickable"></a-cylinder>
     </a-box>
   </a-entity>
-
-
 
     <!-- Room2 -->
     <a-entity id="room2-cnt" position="0 0 -3.800">
@@ -299,17 +297,12 @@
 
      <!-- Room5 Stone Sarcophagi, Cairo Museum -->
     <a-entity id="room5-cnt" position="-3.947 0.219 -28.255" rotation="0 90 0">
-      <a-entity id="sarcofagi" position="0 0 0" rotation="0 0 0" obj-model="obj: #sarcofagi-obj; mtl: #sarcofagi-mtl" scale="0.025 0.025 0.025"></a-entity>
+<!--      <a-entity id="sarcofagi" position="0 0 0" rotation="0 0 0" obj-model="obj: #sarcofagi-obj; mtl: #sarcofagi-mtl" scale="0.025 0.025 0.025"></a-entity>-->
+      <a-entity position="0 0 0" rotation="0 0 0" scale="0.025 0.025 0.025" gltf-model="url(https://firebasestorage.googleapis.com/v0/b/reddragon-vrmuseum.appspot.com/o/sarcofaghi.gltf?alt=media&token=ddb4ef26-7fb9-43d8-bd19-db0938b09a34)"></a-entity>
     </a-entity>
 
 
-
-
-
-
   <a-entity id="museo" position="-18.450 0.087 9.046" rotation="0 0 0" obj-model="obj: #museo-obj; mtl: #museo-mtl" scale="1 1 1"></a-entity>
-
-
 
   <!-- Ambient Lights -->
   <a-entity light="type: ambient; color: #BBB; intensity: 0.42"></a-entity>

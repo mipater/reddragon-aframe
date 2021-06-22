@@ -44,7 +44,7 @@ export class AuthService {
     private router: Router) {}
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCMD4sLQJhALQfMlv7-rVM74t6Tlx4eAhE',
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAjW60Acf-OqquYv1U5HkEWq5XlzuuEyI4',
       {
         email,
         password,

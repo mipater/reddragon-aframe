@@ -77,6 +77,7 @@ export class InfoPanel {
         closePanel: function () {
           this.infoPanelEl.parentNode.removeChild(this.infoPanelEl);
           this.infoPanelEl = null;
+          this.pagination.currentPage = 1;
         },
 
         createInfoPanel: function () {
